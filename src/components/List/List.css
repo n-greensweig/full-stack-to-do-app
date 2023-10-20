@@ -1,0 +1,12 @@
+table {
+    border: 1px solid black;
+}
+
+tr {
+    border: 1px solid black;
+}
+
+.table-data {
+    margin: 50px;
+    border: 1px solid black;
+}
