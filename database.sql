@@ -1,10 +1,10 @@
 CREATE TABLE "todo" (
 "id" SERIAL PRIMARY KEY,
-"item" VARCHAR(1000) NOT NULL,
-"assigned" DATE NOT NULL,
+"task" VARCHAR(1000) NOT NULL,
 "due" DATE,
+"priority" VARCHAR(50),
 "completed" BOOLEAN DEFAULT FALSE
 );
 
-INSERT INTO "todo" ("item", "assigned", "due")
-VALUES ('Grocery shop', '2023-10-20', '2023-10-21');
+INSERT INTO "todo" ("task", "due")
+VALUES ('Grocery shop', '2023-10-21');

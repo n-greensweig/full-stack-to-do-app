@@ -16,21 +16,23 @@ This is a full-stack to-do app that allows one to add and delete to-do items fro
 
 ## Checklist
 
-### Part 1 - Set up
-- [ ] Create a database named ```weekend-to-do-app```
+### Appending to the DOM
+- [ ] Add React components to the DOM: Form (with add button), List (of to-do items), Item (for each to-do item), Delete button, Complete button
+- [ ] The user input form takes in task name, due date, and priority level
+- [ ] Include `x/y completed` text on the DOM where `x` is the number of tasks out of the `y` of total tasks on the list
 
-### 
+### Adding to and sorting from the DB
 - [ ] To-do items run on the path ```/todo```
-- [ ] Add the following React components: Form (with add button),
+- [ ] Allow the user to sort the table by task name, due date, priority level, or completion status
+- [ ] Add click-to-edit functionality for each TD item and date
+- [ ] Add pop-up calendar for the date inputs and and date edits
 
-- [ ] Create React components for a user input form that takes in task name, assigned date, due date, and priority level
-- [ ] Include a JSX button that allows users to complete or delete each task
+### Styling
 - [ ] Change the background color to green and strikethrough the text of tasks that are completed
 - [ ] Add a sweetalert pop-up to confirm the user wants to delete a task before officially doing so
-- [ ] Create a database called `weekend-to-do-app` with the following columns: `id, taskName, taskAssignedDate, taskDueDate, priorityLevel, notes, completed`
-- [ ] Set up sorting functionality to allow the user to sort the table by task name, assigned date, due date, priority level, or completion status
-- [ ] Create a `database.sql` text file that includes all `CREATE TABLE` queries
+- [ ] Change text color if item is marked high priority
 
-Your project description goes here. What problem did you solve? How did you solve it?
-
-Additional README details can be found [here](https://github.com/PrimeAcademy/readme-template/blob/master/README.md).
+### Stretch goals
+- [ ] Allow users to create folders and sort tasks into different folders with a drop-down (e.g., 'Money', 'Work', 'School', 'Add new...')
+- [ ] Allow drag and drop functionality to move tasks from one folder to another
+- [ ] Allow users to choose the color of their app

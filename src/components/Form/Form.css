@@ -1,0 +1,10 @@
+form {
+    border: 1px solid black;
+    margin: 5rem;
+    text-align: center;
+    padding: 10px;
+}
+
+.margin {
+    margin-right: 30px;
+}
