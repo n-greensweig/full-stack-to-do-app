@@ -30,10 +30,27 @@ function TaskItem(props) {
 
     };
 
+
+
+    const toggleCompleted = () => {
+
+        axios.put(`/todo/${props.id}`)
+            .then(response => {
+                props.getTaskList();
+            })
+            .catch(error => {
+                console.error(error);
+                alert('Something went wrong');
+            });
+
+    };
+
+
+
     // Returns a row for each task item
     return (
         <tr>
-            <td><button>Completed</button></td>
+            <td><button onClick={toggleCompleted}>Completed</button></td>
             <td>{props.task.task}</td>
             <td>{props.task.dueDate}</td>
             <td>{props.task.priority}</td>

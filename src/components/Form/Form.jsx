@@ -34,6 +34,8 @@ function Form(props) {
 
 
     return (
+
+        // User input form
         <div id="form">
             <form onSubmit={sendTaskToServer}>
                 <span>Add a to-do</span><br></br><br></br>
@@ -59,6 +61,7 @@ function Form(props) {
                 <button type='submit'>Save</button>
             </form>
         </div>
+
     );
 }
 

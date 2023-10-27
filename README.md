@@ -17,22 +17,25 @@ This is a full-stack to-do app that allows one to add and delete to-do items fro
 ## Checklist
 
 ### Appending to the DOM
-- [ ] Add React components to the DOM: Form (with add button), List (of to-do items), Item (for each to-do item), Delete button, Complete button
-- [ ] The user input form takes in task name, due date, and priority level
-- [ ] Include `x/y completed` text on the DOM where `x` is the number of tasks out of the `y` of total tasks on the list
+- [x] Add React components to the DOM: Form (with add button), List (of to-do items), Item (for each to-do item), Delete button, Complete button
+- [x] The user input form takes in task `required`, and the following optional fields: due date and priority level  `optional shown`; URL, notes, email reminder? `optional hidden`
 
 ### Adding to and sorting from the DB
-- [ ] To-do items run on the path ```/todo```
+- [x] To-do items run on the path ```/todo```
+- [ ] Client-side validation that due date is a date and priority level is not 'Select an  option...'
+- [ ] Server-side validation?
 - [ ] Allow the user to sort the table by task name, due date, priority level, or completion status
 - [ ] Add click-to-edit functionality for each TD item and date
-- [ ] Add pop-up calendar for the date inputs and and date edits
+- [ ] Add pop-up calendar for date inputs and and date edits
 
 ### Styling
 - [ ] Change the background color to green and strikethrough the text of tasks that are completed
-- [ ] Add a sweetalert pop-up to confirm the user wants to delete a task before officially doing so
+- [x] Add a sweetalert pop-up to confirm the user wants to delete a task
 - [ ] Change text color if item is marked high priority
+- [ ] Responsiveness
+- [ ] Change the completed button to an empty or filled circle
 
 ### Stretch goals
-- [ ] Allow users to create folders and sort tasks into different folders with a drop-down (e.g., 'Money', 'Work', 'School', 'Add new...')
+- [ ] Allow users to create folders and sort tasks into different folders with a drop-down (e.g., 'Money', 'Work', 'School', 'Completed', 'Add new...')
 - [ ] Allow drag and drop functionality to move tasks from one folder to another
 - [ ] Allow users to choose the color of their app

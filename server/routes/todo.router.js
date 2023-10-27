@@ -35,6 +35,21 @@ router.post('/', (req, res) => {
 });
 
 // PUT
+router.put('/:id', (req, res) => {
+
+    let queryText = `
+    UPDATE "todo" SET "completed" = NOT "completed" WHERE "id" = $1;
+    `;
+    pool.query(queryText, [req.params.id])
+        .then(response => {
+            res.sendStatus(200);
+        })
+        .catch(error => {
+            console.error(error);
+            res.sendStatus(500);
+        });
+
+});
 
 // DELETE
 router.delete('/:id', (req, res) => {
