@@ -8,3 +8,12 @@ form {
 .margin {
     margin-right: 30px;
 }
+
+.datepicker {
+    color: white;
+    background-color: teal;
+}
+.datepicker::placeholder {
+    color: white;
+    background-color: teal;
+}

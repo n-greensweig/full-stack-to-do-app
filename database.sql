@@ -3,8 +3,8 @@ CREATE TABLE "todo" (
 "task" VARCHAR(1000) NOT NULL,
 "dueDate" DATE,
 "priority" VARCHAR(50),
-"completed" BOOLEAN DEFAULT FALSE
+"completed" BOOLEAN DEFAULT 'False'
 );
 
 INSERT INTO "todo" ("task", "dueDate")
-VALUES ('Grocery shop', '2023-10-21');
+VALUES ('Testing', '10/21/2023');

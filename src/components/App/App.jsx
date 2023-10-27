@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import Form from '../Form/Form';
 import TaskList from '../TaskList/TaskList';
+import SortTasks from '../SortTasks/SortTasks';
 
 function App() {
 
@@ -31,6 +32,7 @@ function App() {
       </div>
 
       <Form getTaskList={getTaskList} />
+      <SortTasks getTaskList={getTaskList} />
       <TaskList getTaskList={getTaskList} taskList={taskList} />
 
     </div>
