@@ -4,10 +4,12 @@ import './Form.css';
 
 function Form(props) {
 
+    // Variables for each user input field
     const [task, setTask] = useState('');
     const [dueDate, setDueDate] = useState('');
     const [priority, setPriority] = useState('');
 
+    // POST request to run on form submission
     const sendTaskToServer = event => {
 
         event.preventDefault();

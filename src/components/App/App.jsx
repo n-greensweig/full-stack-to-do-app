@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import Form from '../Form/Form';
-import List from '../List/List';
+import TaskList from '../TaskList/TaskList';
 
 function App() {
 
@@ -31,9 +31,7 @@ function App() {
       </div>
 
       <Form getTaskList={getTaskList} />
-      {
-        taskList.map(task => <List key={task.id} task={task} />)
-      }
+      <TaskList taskList={taskList} />
 
     </div>
   );
