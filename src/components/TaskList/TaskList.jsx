@@ -19,15 +19,6 @@ function TaskList(props) {
         </table>
     )
 
-    return (
-        <>
-            <h1>Tasks:</h1>
-            <ul>
-                {props.taskList.map(task => <TaskItem key={task.id} task={task} />)}
-            </ul>
-        </>
-    )
-
 }
 
 export default TaskList;
