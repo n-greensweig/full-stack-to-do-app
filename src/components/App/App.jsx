@@ -31,7 +31,7 @@ function App() {
       </div>
 
       <Form getTaskList={getTaskList} />
-      <TaskList taskList={taskList} />
+      <TaskList getTaskList={getTaskList} taskList={taskList} />
 
     </div>
   );

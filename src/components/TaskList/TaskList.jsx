@@ -3,6 +3,7 @@ import TaskItem from '../TaskItem/TaskItem';
 
 function TaskList(props) {
 
+    // Table of task items
     return (
         <table>
             <thead>To-do List</thead>
@@ -14,7 +15,7 @@ function TaskList(props) {
                 <th>Delete</th>
             </tr>
             <tbody>
-                {props.taskList.map(task => <TaskItem key={task.id} task={task} />)}
+                {props.taskList.map(task => <TaskItem id={task.id} getTaskList={props.getTaskList} task={task} />)}
             </tbody>
         </table>
     )

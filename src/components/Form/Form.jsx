@@ -27,7 +27,7 @@ function Form(props) {
             })
             .catch(error => {
                 console.error(error);
-                alert('Something went wrong with the POST request.');
+                alert('Something went wrong.');
             });
 
     };
