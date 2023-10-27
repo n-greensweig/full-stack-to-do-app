@@ -30,7 +30,7 @@ function App() {
         <h1>TO DO APP</h1>
       </div>
 
-      <Form />
+      <Form getTaskList={getTaskList} />
       {
         taskList.map(task => <List key={task.id} task={task} />)
       }

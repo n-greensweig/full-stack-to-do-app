@@ -17,6 +17,22 @@ router.get('/', (req, res) => {
 });
 
 // POST
+router.post('/', (req, res) => {
+
+    let queryText = `
+    INSERT INTO "todo" ("task", "dueDate", "priority")
+    VALUES ($1, $2, $3);
+    `;
+    pool.query(queryText, [req.body.task, req.body.dueDate, req.body.priority])
+        .then(response => {
+            res.sendStatus(200);
+        })
+        .catch(error => {
+            console.error(error);
+            res.sendStatus(500);
+        });
+
+});
 
 // PUT
 
