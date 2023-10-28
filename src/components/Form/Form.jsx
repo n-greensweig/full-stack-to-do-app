@@ -56,10 +56,11 @@ function Form(props) {
                     {/* Second input field */}
                     <DatePicker
                         className={'datepicker margin form-input'}
+                        value={dueDate}
                         selected={dueDate}
                         onChange={handleDateChange}
                         dateFormat={'MM/dd/yyyy'}
-                        isClearable
+                        isClearable={true}
                         placeholderText='Due Date'
                     />
 

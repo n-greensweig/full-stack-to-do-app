@@ -1,25 +1,26 @@
+import { useState, useEffect } from "react";
 import DatePicker from "react-datepicker";
 import 'react-datepicker/dist/react-datepicker.css';
 import CheckboxButton from "../Buttons/CheckboxButton/CheckboxButton";
 import DeleteButton from "../Buttons/DeleteButton/DeleteButton";
-import { useState } from "react";
 import axios from "axios";
 import './TaskItem.css';
 
 function TaskItem(props) {
 
     let formattedDate = `${new Date(props.task.dueDate).getMonth() + 1}/${new Date(props.task.dueDate).getDate()}/${new Date(props.task.dueDate).getFullYear()}`;
-    
-    // Come back here
+
     const [task, setTask] = useState('');
 
+    // 
+    const saveEditedTask = (e) => {
 
-    const editTask = () => {
+        // Set task as the user's new input on 
+        setTask(e.target.value);
 
-        // POST request to update
+        // POST request to update the task in PostgreSQL
         axios.post(`/todo/${props.id}`, {
-            id: props.id,
-
+            task: task,
         }).then(response => {
             props.getTaskList();
         }).catch(error => {
@@ -29,12 +30,23 @@ function TaskItem(props) {
 
     };
 
+    // Potentially set up a POST request to change the dates upon user change/blur
+
     // Returns a row for each task item
     return (
 
         <tr>
             <td><CheckboxButton id={props.id} getTaskList={props.getTaskList} task={props.task} /></td>
-            <td contentEditable={true} onInput={e => editTask(props.id, e.currentTarget.textContent)} >{props.task.task}</td>
+            <td
+                contentEditable={true}
+                suppressContentEditableWarning={true}
+                value={task}
+                onInput={e => setTask(e.currentTarget.textContent)}
+                onBlur={saveEditedTask} >
+
+                {props.task.task}
+
+            </td>
             <td><DatePicker value={formattedDate} /></td>
             <td>{props.task.priority}</td>
             <td><DeleteButton id={props.id} getTaskList={props.getTaskList} /></td>

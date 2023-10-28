@@ -54,19 +54,17 @@ router.put('/:id', (req, res) => {
 // POST request for click-to-edit functionality
 router.post('/:id', (req, res) => {
 
-    console.log('HEY', req.body);
-
-    // let queryText = `
-    // UPDATE "todo" SET "task" = $1 WHERE "id" = $2;
-    // `;
-    // pool.query(queryText, [req.params.id])
-    //     .then(response => {
-    //         res.sendStatus(200);
-    //     })
-    //     .catch(error => {
-    //         console.error(error);
-    //         res.sendStatus(500);
-    //     });
+    let queryText = `
+    UPDATE "todo" SET "task" = $1 WHERE "id" = $2;
+    `;
+    pool.query(queryText, [req.body.task, req.params.id])
+        .then(response => {
+            res.sendStatus(200);
+        })
+        .catch(error => {
+            console.error(error);
+            res.sendStatus(500);
+        });
 
 });
 

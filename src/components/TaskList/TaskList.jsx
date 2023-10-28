@@ -5,18 +5,20 @@ function TaskList(props) {
 
     // Table of task items
     return (
-            <table>
+        <table>
+            <thead>
                 <tr>
-                    <th>Completed?</th>
+                    <th></th>
                     <th>Task</th>
                     <th>Due Date</th>
                     <th>Priority</th>
-                    <th>Delete</th>
+                    <th></th>
                 </tr>
-                <tbody>
-                    {props.taskList.map(task => <TaskItem id={task.id} getTaskList={props.getTaskList} task={task} />)}
-                </tbody>
-            </table>
+            </thead>
+            <tbody>
+                {props.taskList.map(task => <TaskItem id={task.id} getTaskList={props.getTaskList} task={task} />)}
+            </tbody>
+        </table>
     )
 
 }

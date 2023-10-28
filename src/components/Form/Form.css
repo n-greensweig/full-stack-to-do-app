@@ -11,7 +11,7 @@ form {
 }
 
 .datepicker {
-    color: white;
+    color: gray;
 }
 
 .form-input {
@@ -21,4 +21,8 @@ form {
 
 .gray {
     color: gray;
+}
+
+option {
+    padding: 12px;
 }
