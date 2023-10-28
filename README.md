@@ -38,6 +38,9 @@ This is a full-stack to-do app that allows one to add and delete to-do items fro
 - [ ] Allow users to create folders and sort tasks into different folders with a drop-down (e.g., 'Money', 'Work', 'School', 'Completed', 'Add new...')
 - [ ] Allow drag and drop functionality to move tasks from one folder to another
 - [ ] Allow users to choose the color of their app
+- [ ] Add search functionality, as in the fs-treats assignment
+- [ ] Toggle light and dark mode
+- [ ] Make placeholder text disappear on click of input box
 
 ### To-do 10/27
 - [ ] Allow the user to sort the table by task name, due date, priority level, or completion status

@@ -1,6 +1,7 @@
 form {
-    border: 1px solid black;
-    margin: 5rem;
+    border-bottom: 1px dashed gray;
+    margin: 0 15rem;
+    margin-bottom: 2rem;
     text-align: center;
     padding: 10px;
 }
@@ -11,9 +12,13 @@ form {
 
 .datepicker {
     color: white;
-    background-color: teal;
 }
-.datepicker::placeholder {
-    color: white;
-    background-color: teal;
+
+.form-input {
+    border: none;
+    border-bottom: 1px dashed lightgray;
+}
+
+.gray {
+    color: gray;
 }

@@ -49,28 +49,23 @@ function Form(props) {
             {/* User input form */}
             <div id="form">
                 <form onSubmit={sendTaskToServer}>
-                    <span>Add a to-do</span><br></br><br></br>
 
                     {/* First input field */}
-                    <label htmlFor='task-input'>Task: </label>
-                    <input id='task-input' value={task} className='margin' placeholder="Buy milk..." onChange={e => setTask(e.target.value)} required />
+                    <input id='task-input' value={task} className='margin form-input' placeholder="Task" onChange={e => setTask(e.target.value)} required />
 
                     {/* Second input field */}
-                    <label htmlFor='due-input'>Due Date: </label>
-                    {/* <input id='due-input' type='date' value={dueDate} className='margin' placeholder="2023-10-20" onChange={e => setDueDate(e.target.value)} /> */}
                     <DatePicker
-                        className={'datepicker'}
+                        className={'datepicker margin form-input'}
                         selected={dueDate}
                         onChange={handleDateChange}
                         dateFormat={'MM/dd/yyyy'}
                         isClearable
-                        placeholderText='MM/DD/YYYY'
+                        placeholderText='Due Date'
                     />
 
                     {/* Priority drop-down */}
-                    <label htmlFor='priority-input'>Priority: </label>
                     <select id='priority-input' value={priority} className='margin' onChange={e => setPriority(e.target.value)}>
-                        <option className="gray">Select an option....</option>
+                        <option className="gray">Priority</option>
                         <option>Low</option>
                         <option>Medium</option>
                         <option>High</option>

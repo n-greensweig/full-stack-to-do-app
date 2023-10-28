@@ -3,14 +3,13 @@ import axios from 'axios';
 import Form from '../Form/Form';
 import TaskList from '../TaskList/TaskList';
 import SortTasks from '../SortTasks/SortTasks';
+import './App.css';
 
 function App() {
 
   const [taskList, setTaskList] = useState([]);
 
   const getTaskList = () => {
-
-    console.log(`in toggleCompleted task value`, taskList);
 
     axios.get('/todo')
       .then(response => {
@@ -30,11 +29,12 @@ function App() {
   return (
     <div id='container'>
       <div>
-        <h1>TO DO APP</h1>
+        <h1>Reminders</h1>
       </div>
 
       <Form getTaskList={getTaskList} />
       <SortTasks getTaskList={getTaskList} />
+      <h2>To-do List</h2>
       <TaskList getTaskList={getTaskList} taskList={taskList} />
 
     </div>
