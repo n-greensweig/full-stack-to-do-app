@@ -10,6 +10,8 @@ function App() {
 
   const getTaskList = () => {
 
+    console.log(`in toggleCompleted task value`, taskList);
+
     axios.get('/todo')
       .then(response => {
         setTaskList(response.data);
