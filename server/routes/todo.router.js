@@ -5,8 +5,6 @@ const pool = require('../modules/pool.js');
 // GET
 router.get('/', (req, res) => {
 
-    if (req.query.q === undefined) {
-
         let queryText = `SELECT * FROM "todo" ORDER BY "id" ASC;`;
         pool.query(queryText)
             .then(result => {
@@ -16,28 +14,39 @@ router.get('/', (req, res) => {
                 console.error('ERROR IN GET /todo', error);
             });
 
-    } else {
-
-        let queryText = `SELECT * FROM "todo" WHERE "task" ILIKE $1 ORDER BY "id";`;
-        pool.query(queryText, [`%${req.query.q}%`])
-            .then(result => {
-                res.send(result.rows);
-            })
-            .catch(error => {
-                console.error('Error in GET /todo', error);
-                res.sendStatus(500);
-            });
-
-    }
-
 });
+
+// GET search results
+router.get('/search', (req, res) => {
+
+    let queryText = `SELECT * FROM "todo" WHERE "task" ILIKE $1 ORDER BY "id";`;
+    pool.query(queryText, [`%${req.query.q}%`])
+        .then(result => {
+            res.send(result.rows);
+        })
+        .catch(error => {
+            console.error('Error in GET /todo/search', error);
+            res.sendStatus(500);
+        });
+
+})
 
 // GET sorted results
 router.get('/sortedResults', (req, res) => {
 
-    console.log('hey', req.query.sort);
+    let queryText = `
+    SELECT * FROM "todo" ORDER BY $1;
+    `;
+    pool.query(queryText, [req.query.sort])
+        .then(result => {
+            res.send(result.rows);
+        })
+        .catch(error => {
+            console.error(error);
+            res.sendStatus(500);
+        });
 
-})
+});
 
 // POST
 router.post('/', (req, res) => {

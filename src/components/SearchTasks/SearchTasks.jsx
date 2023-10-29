@@ -13,7 +13,7 @@ function SearchTasks(props) {
 
         event.preventDefault();
 
-        axios.get(`/todo?q=${search}`)
+        axios.get(`/todo/search?q=${search}`)
             .then(response => {
                 setSearchResults(response.data);
             })
