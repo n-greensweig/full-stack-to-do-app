@@ -4,6 +4,7 @@ import Form from '../Form/Form';
 import TaskList from '../TaskList/TaskList';
 import SortTasks from '../SortTasks/SortTasks';
 import './App.css';
+import SearchTasks from '../SearchTasks/SearchTasks';
 
 function App() {
 
@@ -33,7 +34,10 @@ function App() {
       </div>
 
       <Form getTaskList={getTaskList} />
-      <SortTasks getTaskList={getTaskList} />
+      <div className='flex'>
+        <SortTasks getTaskList={getTaskList} />
+        <SearchTasks />
+      </div>
       <h2>To-do List</h2>
       <TaskList getTaskList={getTaskList} taskList={taskList} />
 

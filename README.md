@@ -22,9 +22,9 @@ This is a full-stack to-do app that allows one to add and delete to-do items fro
 
 ### Adding to and sorting from the DB
 - [x] To-do items run on the path ```/todo```
-- [ ] Client-side validation that due date is a date and priority level is not 'Select an  option...'
+- [x] Client-side validation that due date is a date and priority level is not 'Select an  option...'
 - [x] Add pop-up calendar for date inputs and and date edits
-- [ ] Reformat dates from DB
+- [x] Reformat dates from DB
 - [ ] Change text color if item is marked high priority
 - [ ] Server-side validation?
 
@@ -41,7 +41,8 @@ This is a full-stack to-do app that allows one to add and delete to-do items fro
 - [ ] Add search functionality, as in the fs-treats assignment
 - [ ] Toggle light and dark mode
 - [ ] Make placeholder text disappear on click of input box
+- [ ] Add filter option for dates and priority
 
 ### To-do 10/27
 - [ ] Allow the user to sort the table by task name, due date, priority level, or completion status
-- [ ] Add click-to-edit functionality for each TD item and date
+- [x] Add click-to-edit functionality for each TD item and date

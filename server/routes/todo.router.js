@@ -5,14 +5,30 @@ const pool = require('../modules/pool.js');
 // GET
 router.get('/', (req, res) => {
 
-    let queryText = `SELECT * FROM "todo" ORDER BY "id" ASC;`;
-    pool.query(queryText)
-        .then(result => {
-            res.send(result.rows);
-        })
-        .catch(error => {
-            console.error('ERROR IN GET /todo', error);
-        });
+    if (req.query.q === undefined) {
+
+        let queryText = `SELECT * FROM "todo" ORDER BY "id" ASC;`;
+        pool.query(queryText)
+            .then(result => {
+                res.send(result.rows);
+            })
+            .catch(error => {
+                console.error('ERROR IN GET /todo', error);
+            });
+
+    } else {
+
+        let queryText = `SELECT * FROM "todo" WHERE "task" ILIKE $1 ORDER BY "id";`;
+        pool.query(queryText, [`%${req.query.q}%`])
+            .then(result => {
+                res.send(result.rows);
+            })
+            .catch(error => {
+                console.error('Error in GET /todo', error);
+                res.sendStatus(500);
+            });
+
+    }
 
 });
 

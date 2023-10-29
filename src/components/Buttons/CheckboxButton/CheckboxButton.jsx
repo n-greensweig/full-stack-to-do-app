@@ -23,7 +23,7 @@ function CheckboxButton(props) {
 
     };
 
-    // Toggle completed on chang
+    // Toggle completed on change
     return (
         <Checkbox checked={isSelected} value={isSelected} onChange={toggleCompleted} />
     )
