@@ -14,35 +14,29 @@ This is a full-stack to-do app that allows one to add and delete to-do items fro
 5. Run ```npm run client``` in your terminal
 6. The ```npm run client``` command will open up a new browser tab for you
 
-## Checklist
+## Features to add
 
-### Appending to the DOM
-- [x] Add React components to the DOM: Form (with add button), List (of to-do items), Item (for each to-do item), Delete button, Complete button
-- [x] The user input form takes in task `required`, and the following optional fields: due date and priority level  `optional shown`; URL, notes, email reminder? `optional hidden`
+### Required and optional input fields
+- [ ] Accept task `required`, and the following optional fields: due date and priority level  `optional shown`; URL, notes, email reminder? `optional hidden`
+- [ ] Refactor SearchTasks and TaskList
 
-### Adding to and sorting from the DB
-- [x] To-do items run on the path ```/todo```
-- [x] Client-side validation that due date is a date and priority level is not 'Select an  option...'
-- [x] Add pop-up calendar for date inputs and and date edits
-- [x] Reformat dates from DB
+### Handling PostgreSQL data
 - [ ] Change text color if item is marked high priority
 - [ ] Server-side validation?
+- [ ] Handle null dates
 
 ### Styling
-- [ ] Change the background color to green and strikethrough the text of tasks that are completed
-- [x] Add a sweetalert pop-up to confirm the user wants to delete a task
+- [ ] Dullen and strikethrough the text of tasks that are completed
 - [ ] Responsiveness
-- [ ] Change the completed button to an empty or filled circle
+- [ ] Make click-to-edit availabillity clear
+- [ ] Add spacing for each task
 
 ### Stretch goals
 - [ ] Allow users to create folders and sort tasks into different folders with a drop-down (e.g., 'Money', 'Work', 'School', 'Completed', 'Add new...')
 - [ ] Allow drag and drop functionality to move tasks from one folder to another
 - [ ] Allow users to choose the color of their app
-- [ ] Add search functionality, as in the fs-treats assignment
 - [ ] Toggle light and dark mode
-- [ ] Make placeholder text disappear on click of input box
-- [ ] Add filter option for dates and priority
-
-### To-do 10/27
+- [ ] Add filter option for dates
+- [ ] Potentially organize by month, as in Apple reminder
 - [ ] Allow the user to sort the table by task name, due date, priority level, or completion status
-- [x] Add click-to-edit functionality for each TD item and date
+- [ ] Comment code

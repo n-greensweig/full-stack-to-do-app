@@ -5,6 +5,7 @@ import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import axios from 'axios';
 import './Form.css';
+import ButtonComponent from '../Buttons/ButtonComponent/ButtonComponent';
 
 function Form(props) {
 
@@ -36,6 +37,7 @@ function Form(props) {
 
     };
 
+    // Set due date value to user-selected date from drop-down calendar
     const handleDateChange = (date) => {
         setDueDate(date);
     };
@@ -47,8 +49,7 @@ function Form(props) {
 
 
             {/* User input form */}
-            <div id="form">
-                <form onSubmit={sendTaskToServer}>
+                <form id='user-input' onSubmit={sendTaskToServer}>
 
                     {/* First input field */}
                     <input id='task-input' value={task} className='margin form-input' placeholder="Task" onChange={e => setTask(e.target.value)} required />
@@ -73,9 +74,9 @@ function Form(props) {
                     </select>
 
                     {/* Submit button */}
-                    <button type='submit'>Save</button>
+                    <ButtonComponent type={'Submit'} name={'Save'} />
+                    {/* <button type='submit'>Save</button> */}
                 </form>
-            </div>
 
         </LocalizationProvider>
 

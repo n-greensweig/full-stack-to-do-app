@@ -1,5 +1,6 @@
 import swal from "sweetalert";
 import axios from "axios";
+import ButtonComponent from "../ButtonComponent/ButtonComponent";
 
 function DeleteButton(props) {
 
@@ -33,7 +34,8 @@ function DeleteButton(props) {
     };
 
     return (
-        <button onClick={deleteTask}>Delete</button>
+        <ButtonComponent onClick={deleteTask} type={'button'} name={'Delete'} />
+        // <button onClick={deleteTask}>Delete</button>
     )
 
 }

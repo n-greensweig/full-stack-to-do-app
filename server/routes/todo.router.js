@@ -32,6 +32,13 @@ router.get('/', (req, res) => {
 
 });
 
+// GET sorted results
+router.get('/sortedResults', (req, res) => {
+
+    console.log('hey', req.query.sort);
+
+})
+
 // POST
 router.post('/', (req, res) => {
 
