@@ -8,11 +8,11 @@ import './TaskItem.css';
 
 function TaskItem(props) {
 
+    // let formattedDate = `${new Date(props.task.dueDate).getMonth() + 1}/${new Date(props.task.dueDate).getDate()}/${new Date(props.task.dueDate).getFullYear()}`;
     let formattedDate = `${new Date(props.task.dueDate).getMonth() + 1}/${new Date(props.task.dueDate).getDate()}/${new Date(props.task.dueDate).getFullYear()}`;
 
     const [task, setTask] = useState('');
 
-    // 
     const saveEditedTask = (e) => {
 
         // Set task as the user's new input on 
@@ -30,7 +30,7 @@ function TaskItem(props) {
 
     };
 
-    // Potentially set up a POST request to change the dates upon user change/blur
+    // POST request to change the dates upon user change/blur
 
     // Returns a row for each task item
     return (
@@ -47,7 +47,7 @@ function TaskItem(props) {
                 {props.task.task}
 
             </td>
-            <td><DatePicker value={formattedDate} /></td>
+            <td>{<DatePicker value={formattedDate} />}</td>
             <td>{props.task.priority}</td>
             <td><DeleteButton id={props.id} getTaskList={props.getTaskList} /></td>
         </tr>

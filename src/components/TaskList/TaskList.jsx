@@ -5,6 +5,7 @@ function TaskList(props) {
 
     // Table of task items
     return (
+
         <table>
             <thead>
                 <tr>
@@ -15,10 +16,10 @@ function TaskList(props) {
                     <th></th>
                 </tr>
             </thead>
-            <tbody>
-                {props.taskList.map(task => <TaskItem id={task.id} getTaskList={props.getTaskList} task={task} />)}
+            <tbody>{props.taskList.map(task => <TaskItem id={task.id} getTaskList={props.getTaskList} task={task} />)}
             </tbody>
         </table>
+
     )
 
 }

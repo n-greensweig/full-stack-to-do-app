@@ -36,10 +36,8 @@ function App() {
       <Form getTaskList={getTaskList} />
       <div className='flex'>
         <SortTasks getTaskList={getTaskList} />
-        <SearchTasks />
       </div>
-      <h2>To-do List</h2>
-      <TaskList getTaskList={getTaskList} taskList={taskList} />
+      <SearchTasks taskList={taskList} getTaskList={getTaskList} />
 
     </div>
   );

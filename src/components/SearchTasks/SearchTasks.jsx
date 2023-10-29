@@ -1,21 +1,20 @@
 import { useState } from "react";
 import axios from "axios";
-function SearchTasks() {
+import TaskList from "../TaskList/TaskList";
+import ListSubHeading from "../Headers/ListSubHeading/ListSubHeading";
+function SearchTasks(props) {
 
+    
     const [search, setSearch] = useState();
-
-    // We need to send a get request for all items in DB
-    // with ILIKE {input}. Thus, we need a GET request
+    const [searchResults, setSearchResults] = useState([]);
 
     const handleSearch = (event) => {
 
-        console.log(search);
         event.preventDefault();
-        console.log(search);
 
         axios.get(`/todo?q=${search}`)
             .then(response => {
-                console.log(response.data);
+                setSearchResults(response.data);
             })
             .catch(error => {
                 console.error(error);
@@ -24,13 +23,16 @@ function SearchTasks() {
 
     };
 
+    const combinedTaskList = searchResults.length > 0 ? searchResults : props.taskList;
+
     return (
         <>
             <h3>Search</h3>
-            <form onSubmit={handleSearch}>
+            <form onChange={handleSearch} onSubmit={handleSearch} >
                 <input value={search} onChange={e => setSearch(e.target.value)} />
             </form>
-            <p>{search}</p>
+            <ListSubHeading />
+            <TaskList taskList={combinedTaskList} getTaskList={props.getTaskList} />
         </>
     )
 
