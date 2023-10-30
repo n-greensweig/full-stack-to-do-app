@@ -12,7 +12,7 @@ function Form(props) {
     // Variables for each user input field
     const [task, setTask] = useState('');
     const [dueDate, setDueDate] = useState(null);
-    const [priority, setPriority] = useState('');
+    const [priority, setPriority] = useState(null);
 
     // POST request to run on form submission
     const sendTaskToServer = event => {
@@ -26,9 +26,11 @@ function Form(props) {
         })
             .then(response => {
                 props.getTaskList();
+
+                // Reset values
                 setTask('');
-                setDueDate('');
-                setPriority('');
+                setDueDate(null);
+                setPriority(null);
             })
             .catch(error => {
                 console.error(error);
@@ -75,7 +77,6 @@ function Form(props) {
 
                     {/* Submit button */}
                     <ButtonComponent type={'Submit'} name={'Save'} />
-                    {/* <button type='submit'>Save</button> */}
                 </form>
 
         </LocalizationProvider>

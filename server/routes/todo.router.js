@@ -19,9 +19,10 @@ router.get('/', (req, res) => {
 // GET search results
 router.get('/search', (req, res) => {
 
-    let queryText = `SELECT * FROM "todo" WHERE "task" ILIKE $1 ORDER BY "id";`;
+    let queryText = `SELECT * FROM "todo" WHERE "task" ILIKE $1 ORDER BY "id" ASC;`;
     pool.query(queryText, [`%${req.query.q}%`])
         .then(result => {
+            console.log();
             res.send(result.rows);
         })
         .catch(error => {
@@ -34,13 +35,12 @@ router.get('/search', (req, res) => {
 // GET sorted results
 router.get('/sortedResults', (req, res) => {
 
-    let queryText = `
-    SELECT * FROM "todo" ORDER BY $1 desc;
-    `;
-    console.log(queryText);
-    pool.query(queryText, [req.query.sort])
+    // Is there another qay to parameterize column names?
+    let queryText = `SELECT * FROM "todo" ORDER BY "${req.query.sort}" DESC;`;
+    pool.query(queryText)
         .then(result => {
-            console.log(result.rows);
+            console.log('hi', req.query.sort);
+            console.log('hi', queryText);
             res.send(result.rows);
         })
         .catch(error => {

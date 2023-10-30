@@ -4,7 +4,7 @@ import ButtonComponent from "../Buttons/ButtonComponent/ButtonComponent";
 function SortTasks(props) {
 
     const [sortedResults, setSortedResults] = useState([]);
-    const [selectedOption, setSelectedOption] = useState('');
+    const [selectedOption, setSelectedOption] = useState('Completion status');
 
     // GET request that sorts by completed, dueDate, priority ASC, DESC
     // as user suggests via drop-down
@@ -13,7 +13,9 @@ function SortTasks(props) {
         event.preventDefault();
 
         let sortParam = '';
-        if (selectedOption === 'Completion status') {
+        if (selectedOption === 'Task') {
+            sortParam = 'task';
+        } else if (selectedOption === 'Completion status') {
             sortParam = 'completed';
             console.log(sortParam);
         } else if (selectedOption === 'Due date') {
