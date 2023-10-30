@@ -4,14 +4,10 @@ import axios from 'axios';
 
 function CheckboxButton(props) {
 
-    // Initialize checked state of each checkbox on DOM as 'completed' value in DB
-    const [isSelected, setIsSelected] = useState(props.task.completed);
-
     // Helper function to toggle completed status
     const toggleCompleted = () => {
 
-        setIsSelected(!isSelected);
-
+        // PUT request to change completed status
         axios.put(`/todo/${props.id}`)
             .then(response => {
                 props.getTaskList();
@@ -25,7 +21,7 @@ function CheckboxButton(props) {
 
     // Toggle completed on change
     return (
-        <Checkbox checked={isSelected} value={isSelected} onChange={toggleCompleted} />
+        <Checkbox checked={props.task.completed} value={props.task.completed} onChange={toggleCompleted} />
     )
 }
 

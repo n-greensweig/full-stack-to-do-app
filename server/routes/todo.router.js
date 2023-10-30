@@ -35,12 +35,11 @@ router.get('/search', (req, res) => {
 // GET sorted results
 router.get('/sortedResults', (req, res) => {
 
-    // Is there another qay to parameterize column names?
+    // Is there another way to parameterize column names?
     let queryText = `SELECT * FROM "todo" ORDER BY "${req.query.sort}" DESC;`;
     pool.query(queryText)
         .then(result => {
             console.log('hi', req.query.sort);
-            console.log('hi', queryText);
             res.send(result.rows);
         })
         .catch(error => {

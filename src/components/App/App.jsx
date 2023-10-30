@@ -11,10 +11,16 @@ import ListSubHeading from '../Headers/ListSubHeading/ListSubHeading';
 function App() {
 
   const [taskList, setTaskList] = useState([]);
+  const [isSorted, setIsSorted] = useState(false);
+  const [sortedResults, setSortedResults] = useState([]);
 
+  // Get task list from the data base
   const getTaskList = () => {
 
-    axios.get('/todo')
+    // If not sorted, get full task list;
+    // else, get sorted task list
+    if (!isSorted) { 
+      axios.get('/todo')
       .then(response => {
         setTaskList(response.data);
       })
@@ -22,6 +28,9 @@ function App() {
         console.error(error);
         alert('Something went wrong with the GET request.');
       });
+    } else {
+      setTaskList(sortedResults);
+    }
 
   };
 
@@ -34,7 +43,7 @@ function App() {
       <MainHeading />
 
       <Form getTaskList={getTaskList} />
-      <SortTasks getTaskList={getTaskList} setTaskList={setTaskList} />
+      <SortTasks getTaskList={getTaskList} setTaskList={setTaskList} sortedResults={sortedResults} setSortedResults={setSortedResults} isSorted={isSorted} setIsSorted={setIsSorted} />
       <SearchTasks taskList={taskList} getTaskList={getTaskList} setTaskList={setTaskList} />
       <ListSubHeading />
       <TaskList taskList={taskList} getTaskList={getTaskList} setTaskList={setTaskList} />

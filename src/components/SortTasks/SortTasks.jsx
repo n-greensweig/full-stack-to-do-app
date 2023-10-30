@@ -3,38 +3,44 @@ import { useState } from "react";
 import ButtonComponent from "../Buttons/ButtonComponent/ButtonComponent";
 function SortTasks(props) {
 
-    const [sortedResults, setSortedResults] = useState([]);
     const [selectedOption, setSelectedOption] = useState('Completion status');
+
+    /* Here's what we need from the sort:
+    - Keep sorted results past page refresh
+    - Move the checkboxes with the sort
+    - Sort by ASC or DESC
+    - Adjust sort by priority to go in order of Null -> Low -> Medium -> High
+    */
+
 
     // GET request that sorts by completed, dueDate, priority ASC, DESC
     // as user suggests via drop-down
     const handleSort = (event) => {
 
+        
         event.preventDefault();
-
+        props.setIsSorted(true);
+        
         let sortParam = '';
         if (selectedOption === 'Task') {
             sortParam = 'task';
         } else if (selectedOption === 'Completion status') {
             sortParam = 'completed';
-            console.log(sortParam);
         } else if (selectedOption === 'Due date') {
             sortParam = 'dueDate';
-            console.log(sortParam);
         } else if (selectedOption === 'Priority') {
             sortParam = 'priority';
-            console.log(sortParam);
         }
         
         axios.get(`/todo/sortedResults?sort=${sortParam}`)
-            .then(response => {
-                console.log(response.data);
+        .then(response => {
+                props.setSortedResults(response.data);
                 props.setTaskList(response.data);
-                setSortedResults(response.data);
             })
             .catch(error => {
+                console.log('hey', sortParam);
                 console.error(error);
-                alert('Something went wrong.');
+                alert('Something went wrong here.');
             });
 
     };

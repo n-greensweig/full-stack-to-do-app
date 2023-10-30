@@ -17,24 +17,20 @@ This is a full-stack to-do app that allows one to add and delete to-do items fro
 ## Features to add
 
 ### Required and optional input fields
-- [ ] Accept optional `notes` input where, onHover or onMouseOver, show task notes
+- [ ] Accept optional `notes` input that is shown onHover or onMouseOver of TaskItem.task
 
 ### Handling PostgreSQL data
 - [ ] Handle null dates
+- [ ] Allow for date and priority editing within to-dos
 
 ### Styling
 - [ ] Change text color if item is marked high priority
 - [ ] Dullen and strikethrough the text of tasks that are completed
-- [ ] Add spacing tasks
+- [ ] Add spacing between columns
 - [ ] Responsiveness
 
 ### Stretch goals
 - [ ] Comment code
 - [ ] Sort due date, priority level, or completion status
 - [ ] Filter by dates
-- [ ] Host on AWS
-- [ ] Organize list by month, as in Apple reminders
-- [ ] Create folders and sort tasks into different folders with a drop-down (e.g., 'Money', 'Work', 'School', 'Completed', 'Add new...')
-- [ ] Drag and drop functionality to move tasks from one folder to another
-- [ ] Users choose the color of their app
 - [ ] Toggle light and dark mode

@@ -32,7 +32,7 @@ function TaskItem(props) {
     };
 
     // POST request to change the dates upon user change/blur
-    const notify = () => toast('Wow so mcuhness!');
+    const notify = () => toast('Wow so muchness!');
     
     // Returns a row for each task item
     return (
