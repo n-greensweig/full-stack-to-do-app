@@ -34,8 +34,8 @@ function DeleteButton(props) {
     };
 
     return (
-        <ButtonComponent onClick={deleteTask} type={'button'} name={'Delete'} />
-        // <button onClick={deleteTask}>Delete</button>
+        // <ButtonComponent onClick={deleteTask} type={'button'} name={'Delete'} />
+        <button onClick={deleteTask}>Delete</button>
     )
 
 }

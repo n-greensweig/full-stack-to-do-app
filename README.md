@@ -17,26 +17,24 @@ This is a full-stack to-do app that allows one to add and delete to-do items fro
 ## Features to add
 
 ### Required and optional input fields
-- [ ] Accept task `required`, and the following optional fields: due date and priority level  `optional shown`; URL, notes, email reminder? `optional hidden`
-- [ ] Refactor SearchTasks and TaskList
+- [ ] Accept optional inputs of `notes` where, onHover or onMouseOver, show task notes
 
 ### Handling PostgreSQL data
-- [ ] Change text color if item is marked high priority
-- [ ] Server-side validation?
 - [ ] Handle null dates
 
 ### Styling
+- [ ] Change text color if item is marked high priority
 - [ ] Dullen and strikethrough the text of tasks that are completed
+- [ ] Add spacing tasks
 - [ ] Responsiveness
-- [ ] Make click-to-edit availabillity clear
-- [ ] Add spacing for each task
 
 ### Stretch goals
-- [ ] Allow users to create folders and sort tasks into different folders with a drop-down (e.g., 'Money', 'Work', 'School', 'Completed', 'Add new...')
-- [ ] Allow drag and drop functionality to move tasks from one folder to another
-- [ ] Allow users to choose the color of their app
-- [ ] Toggle light and dark mode
-- [ ] Add filter option for dates
-- [ ] Potentially organize by month, as in Apple reminder
-- [ ] Allow the user to sort the table by task name, due date, priority level, or completion status
 - [ ] Comment code
+- [ ] Sort due date, priority level, or completion status
+- [ ] Filter by dates
+- [ ] Host on AWS
+- [ ] Organize list by month, as in Apple reminders
+- [ ] Create folders and sort tasks into different folders with a drop-down (e.g., 'Money', 'Work', 'School', 'Completed', 'Add new...')
+- [ ] Drag and drop functionality to move tasks from one folder to another
+- [ ] Users choose the color of their app
+- [ ] Toggle light and dark mode

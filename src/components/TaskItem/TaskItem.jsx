@@ -38,6 +38,7 @@ function TaskItem(props) {
         <tr>
             <td><CheckboxButton id={props.id} getTaskList={props.getTaskList} task={props.task} /></td>
             <td
+                className="underline"
                 contentEditable={true}
                 suppressContentEditableWarning={true}
                 value={task}

@@ -1,3 +1,7 @@
 td {
     color: gray;
 }
+
+.underline {
+    border-bottom: 1px dashed gray;
+}

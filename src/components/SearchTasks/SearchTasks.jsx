@@ -15,6 +15,7 @@ function SearchTasks(props) {
 
         axios.get(`/todo/search?q=${search}`)
             .then(response => {
+                props.setTaskList(response.data);
                 setSearchResults(response.data);
             })
             .catch(error => {
@@ -33,8 +34,6 @@ function SearchTasks(props) {
                 <input value={search} onChange={e => setSearch(e.target.value)} />
                 <ButtonComponent type='submit' name={'Search'} />
             </form>
-            <ListSubHeading />
-            <TaskList taskList={combinedTaskList} getTaskList={props.getTaskList} />
         </>
     )
 
