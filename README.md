@@ -17,7 +17,7 @@ This is a full-stack to-do app that allows one to add and delete to-do items fro
 ## Features to add
 
 ### Required and optional input fields
-- [ ] Accept optional inputs of `notes` where, onHover or onMouseOver, show task notes
+- [ ] Accept optional `notes` input where, onHover or onMouseOver, show task notes
 
 ### Handling PostgreSQL data
 - [ ] Handle null dates

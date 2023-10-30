@@ -5,10 +5,11 @@ import CheckboxButton from "../Buttons/CheckboxButton/CheckboxButton";
 import DeleteButton from "../Buttons/DeleteButton/DeleteButton";
 import axios from "axios";
 import './TaskItem.css';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function TaskItem(props) {
 
-    // let formattedDate = `${new Date(props.task.dueDate).getMonth() + 1}/${new Date(props.task.dueDate).getDate()}/${new Date(props.task.dueDate).getFullYear()}`;
     let formattedDate = `${new Date(props.task.dueDate).getMonth() + 1}/${new Date(props.task.dueDate).getDate()}/${new Date(props.task.dueDate).getFullYear()}`;
 
     const [task, setTask] = useState('');
@@ -31,7 +32,8 @@ function TaskItem(props) {
     };
 
     // POST request to change the dates upon user change/blur
-
+    const notify = () => toast('Wow so mcuhness!');
+    
     // Returns a row for each task item
     return (
 
@@ -43,7 +45,8 @@ function TaskItem(props) {
                 suppressContentEditableWarning={true}
                 value={task}
                 onInput={e => setTask(e.currentTarget.textContent)}
-                onBlur={saveEditedTask} >
+                onBlur={saveEditedTask}
+                onMouseOverCapture={notify} >
 
                 {props.task.task}
 
