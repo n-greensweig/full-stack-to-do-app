@@ -4,10 +4,18 @@ import 'react-datepicker/dist/react-datepicker.css';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import axios from 'axios';
-import './Form.css';
+import './UserForm.css';
 import ButtonComponent from '../Buttons/ButtonComponent/ButtonComponent';
 
-function Form(props) {
+import FormControl from '@mui/material/FormControl';
+import TextField from '@mui/material/TextField';
+
+import Box from '@mui/material/Box';
+import Select from '@mui/material/Select';
+import InputLabel from '@mui/material/InputLabel';
+import MenuItem from '@mui/material/MenuItem';
+
+function UserForm(props) {
 
     // Variables for each user input field
     const [task, setTask] = useState('');
@@ -51,10 +59,11 @@ function Form(props) {
 
 
             {/* User input form */}
-                <form id='user-input' onSubmit={sendTaskToServer}>
+            <form id='user-input' onSubmit={sendTaskToServer}>
+                <FormControl>
 
                     {/* First input field */}
-                    <input id='task-input' value={task} className='margin form-input' placeholder="Task" onChange={e => setTask(e.target.value)} required />
+                    <TextField id='task-input' className='margin' label='Task' variant='outlined' onChange={e => setTask(e.target.value)} required />
 
                     {/* Second input field */}
                     <DatePicker
@@ -68,20 +77,39 @@ function Form(props) {
                     />
 
                     {/* Priority drop-down */}
-                    <select id='priority-input' value={priority} className='margin' onChange={e => setPriority(e.target.value)}>
+                    {/* <InputLabel id="demo-simple-select-label">Priority</InputLabel> */}
+                    <Select className='margin'
+                        labelId="demo-simple-select-label"
+                        id="demo-simple-select"
+                        value={priority}
+                        label="Priority"
+                        onChange={e => setPriority(e.target.value)}
+                    >
+                        <MenuItem value={'Low'}>Low</MenuItem>
+                        <MenuItem value={'Medium'}>Medium</MenuItem>
+                        <MenuItem value={'High'}>High</MenuItem>
+                    </Select>
+                    {/* <select id='priority-input' value={priority} className='margin' onChange={e => setPriority(e.target.value)}>
                         <option className="gray">Priority</option>
                         <option>Low</option>
                         <option>Medium</option>
                         <option>High</option>
-                    </select>
+                    </select> */}
 
                     {/* Submit button */}
-                    <ButtonComponent type={'Submit'} name={'Save'} />
-                </form>
+                    <ButtonComponent function={sendTaskToServer} type={'submit'} name={'Save'} />
+
+                </FormControl>
+
+
+
+            </form>
 
         </LocalizationProvider>
+
+
 
     );
 }
 
-export default Form;
+export default UserForm;

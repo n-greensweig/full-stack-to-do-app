@@ -59,7 +59,7 @@ function SortTasks(props) {
                     <option value={'Due date'}>Due date </option>
                     <option value={'Priority'}>Priority</option>
                 </select>
-                <ButtonComponent type={'submit'} setTaskList={props.setTaskList} name={'Sort'} />
+                <ButtonComponent type={'submit'} function={handleSort} setTaskList={props.setTaskList} name={'Sort'} />
             </form>
         </>
     )

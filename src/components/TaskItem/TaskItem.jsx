@@ -5,8 +5,11 @@ import CheckboxButton from "../Buttons/CheckboxButton/CheckboxButton";
 import DeleteButton from "../Buttons/DeleteButton/DeleteButton";
 import axios from "axios";
 import './TaskItem.css';
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import Grid from '@mui/material/Grid';
+import Card from '@mui/material/Card';
+import CardActions from '@mui/material/CardActions';
+import CardContent from '@mui/material/CardContent';
+import Typography from '@mui/material/Typography';
 
 function TaskItem(props) {
 
@@ -31,11 +34,27 @@ function TaskItem(props) {
 
     };
 
-    // POST request to change the dates upon user change/blur
-    const notify = () => toast('Wow so muchness!');
-    
+    // POST request to change the dates onchange/onblur
+
     // Returns a row for each task item
     return (
+
+        // <Grid item xs={12} md={4}>
+        //     <Card>
+        //         <CardContent>
+        //                 {/* Main content goes gere */}
+        //                 <Typography variant="h3">
+        //                     {/* MUI way of adding an h3 */}
+        //                 </Typography>
+        //                 <Typography>
+
+        //                 </Typography>
+        //             <CardActions>
+        //                 {/* Buttons go here */}
+        //             </CardActions>
+        //         </CardContent>
+        //     </Card>
+        // </Grid>
 
         <tr>
             <td><CheckboxButton id={props.id} getTaskList={props.getTaskList} task={props.task} /></td>
@@ -46,7 +65,7 @@ function TaskItem(props) {
                 value={task}
                 onInput={e => setTask(e.currentTarget.textContent)}
                 onBlur={saveEditedTask}
-                onMouseOverCapture={notify} >
+            >
 
                 {props.task.task}
 
