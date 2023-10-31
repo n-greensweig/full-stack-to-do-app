@@ -6,10 +6,9 @@ function SortTasks(props) {
     const [selectedOption, setSelectedOption] = useState('Completion status');
 
     /* Here's what we need from the sort:
-    - Keep sorted results past page refresh
-    - Move the checkboxes with the sort
     - Sort by ASC or DESC
     - Adjust sort by priority to go in order of Null -> Low -> Medium -> High
+    - Keep sorted results past page refresh?
     */
 
 

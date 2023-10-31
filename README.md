@@ -31,6 +31,5 @@ This is a full-stack to-do app that allows one to add and delete to-do items fro
 
 ### Stretch goals
 - [ ] Comment code
-- [ ] Sort due date, priority level, or completion status
 - [ ] Filter by dates
 - [ ] Toggle light and dark mode
