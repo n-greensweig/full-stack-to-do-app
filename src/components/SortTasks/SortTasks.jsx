@@ -1,6 +1,11 @@
 import axios from "axios";
 import { useState } from "react";
 import ButtonComponent from "../Buttons/ButtonComponent/ButtonComponent";
+
+import Select from '@mui/material/Select';
+import InputLabel from '@mui/material/InputLabel';
+import MenuItem from '@mui/material/MenuItem';
+import { FormControl } from "@mui/material";
 function SortTasks(props) {
 
     const [selectedOption, setSelectedOption] = useState('Completion status');
@@ -16,10 +21,10 @@ function SortTasks(props) {
     // as user suggests via drop-down
     const handleSort = (event) => {
 
-        
+
         event.preventDefault();
         props.setIsSorted(true);
-        
+
         let sortParam = '';
         if (selectedOption === 'Task') {
             sortParam = 'task';
@@ -30,9 +35,9 @@ function SortTasks(props) {
         } else if (selectedOption === 'Priority') {
             sortParam = 'priority';
         }
-        
+
         axios.get(`/todo/sortedResults?sort=${sortParam}`)
-        .then(response => {
+            .then(response => {
                 props.setSortedResults(response.data);
                 props.setTaskList(response.data);
             })
@@ -51,17 +56,22 @@ function SortTasks(props) {
 
     return (
 
-        <>
-            <form onSubmit={handleSort}>
-                <h3>Sort</h3>
-                <select onChange={handleSelectChange} value={selectedOption}>
-                    <option value={'Completion status'}>Completion status</option>
-                    <option value={'Due date'}>Due date </option>
-                    <option value={'Priority'}>Priority</option>
-                </select>
+        <form onSubmit={handleSort}>
+            <FormControl>
+                <InputLabel>Sort</InputLabel>
+                <Select
+                    value={selectedOption}
+                    label="Sort"
+                    onChange={handleSelectChange}
+                >
+                    <MenuItem value={'Completion status'}>Completion status</MenuItem>
+                    <MenuItem value={'Due date'}>Due date</MenuItem>
+                    <MenuItem value={'Priority'}>Priority</MenuItem>
+                </Select>
                 <ButtonComponent type={'submit'} function={handleSort} setTaskList={props.setTaskList} name={'Sort'} />
-            </form>
-        </>
+            </FormControl>
+        </form>
+
     )
 
 }

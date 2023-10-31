@@ -14,6 +14,7 @@ import Box from '@mui/material/Box';
 import Select from '@mui/material/Select';
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
+import Dropdown from '../Dropdown/Dropdown';
 
 function UserForm(props) {
 
@@ -60,46 +61,57 @@ function UserForm(props) {
 
             {/* User input form */}
             <form id='user-input' onSubmit={sendTaskToServer}>
-                <FormControl>
 
-                    {/* First input field */}
-                    <TextField id='task-input' className='margin' label='Task' variant='outlined' onChange={e => setTask(e.target.value)} required />
+                <Box sx={{ minWidth: 120 }}>
+                    <FormControl variant='outlined' fullWidth sx={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
 
-                    {/* Second input field */}
-                    <DatePicker
-                        className={'datepicker margin form-input'}
-                        value={dueDate}
-                        selected={dueDate}
-                        onChange={handleDateChange}
-                        dateFormat={'MM/dd/yyyy'}
-                        isClearable={true}
-                        placeholderText='Due Date'
-                    />
+                        {/* First input field */}
+                        <TextField
+                            id='task-input'
+                            className='margin'
+                            label='Task'
+                            variant='outlined'
+                            onChange={e => setTask(e.target.value)} required />
 
-                    {/* Priority drop-down */}
-                    {/* <InputLabel id="demo-simple-select-label">Priority</InputLabel> */}
-                    <Select className='margin'
-                        labelId="demo-simple-select-label"
-                        id="demo-simple-select"
-                        value={priority}
-                        label="Priority"
-                        onChange={e => setPriority(e.target.value)}
-                    >
-                        <MenuItem value={'Low'}>Low</MenuItem>
-                        <MenuItem value={'Medium'}>Medium</MenuItem>
-                        <MenuItem value={'High'}>High</MenuItem>
-                    </Select>
-                    {/* <select id='priority-input' value={priority} className='margin' onChange={e => setPriority(e.target.value)}>
-                        <option className="gray">Priority</option>
-                        <option>Low</option>
-                        <option>Medium</option>
-                        <option>High</option>
-                    </select> */}
+                    </FormControl><br></br>
+
+                    <FormControl>
+
+                        {/* Second input field */}
+                        <DatePicker
+                            className={'datepicker margin form-input'}
+                            value={dueDate}
+                            selected={dueDate}
+                            onChange={handleDateChange}
+                            dateFormat={'MM/dd/yyyy'}
+                            isClearable={true}
+                            placeholderText='Due Date'
+                        />
+                    </FormControl><br></br>
+
+                    <FormControl sx={{ width: '100%' }}>
+
+                        {/* Priority drop-down */}
+                        <InputLabel id='dropdown-label'>Priority</InputLabel>
+                        <Select
+                            className='margin'
+                            labelId="dropdown-label"
+                            id="dropdown"
+                            value={props.priority}
+                            label="Priority"
+                            onChange={e => props.setPriority(e.target.value)}
+                            sx={{ width: '100%' }}
+                        >
+                            <MenuItem value={'Low'}>Low</MenuItem>
+                            <MenuItem value={'Medium'}>Medium</MenuItem>
+                            <MenuItem value={'High'}>High</MenuItem>
+                        </Select>
+                    </FormControl>
 
                     {/* Submit button */}
                     <ButtonComponent function={sendTaskToServer} type={'submit'} name={'Save'} />
 
-                </FormControl>
+                </Box>
 
 
 

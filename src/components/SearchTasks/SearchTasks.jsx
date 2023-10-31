@@ -1,6 +1,10 @@
 import { useState } from "react";
 import axios from "axios";
 import ButtonComponent from "../Buttons/ButtonComponent/ButtonComponent";
+
+import FormControl from '@mui/material/FormControl';
+import TextField from '@mui/material/TextField';
+import InputLabel from '@mui/material/InputLabel';
 function SearchTasks(props) {
 
 
@@ -23,16 +27,17 @@ function SearchTasks(props) {
 
     };
 
-    const combinedTaskList = searchResults.length > 0 ? searchResults : props.taskList;
-
     return (
-        <>
-            <form onChange={handleSearch} onSubmit={handleSearch} >
-                <h3>Search</h3>
-                <input value={search} onChange={e => setSearch(e.target.value)} />
+        <form onChange={handleSearch} onSubmit={handleSearch} >
+            <FormControl>
+                <TextField
+                    label='Search'
+                    variant='outlined'
+                    onChange={e => setSearch(e.target.value)}
+                    value={search} />
                 <ButtonComponent type='submit' function={handleSearch} name={'Search'} />
-            </form>
-        </>
+            </FormControl>
+        </form>
     )
 
 }
