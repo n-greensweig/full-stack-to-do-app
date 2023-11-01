@@ -54,7 +54,8 @@ function TaskItem(props) {
                 {props.task.task}
 
             </td>
-            <td>{<DatePicker value={formattedDate} />}</td>
+            {/* Edit here */}
+            <td>{formattedDate === '12/31/1969' ? <DatePicker value={new Date()} /> : <DatePicker value={formattedDate} />}</td>
             <td 
             className={props.task.completed ? 'dullen' : 'strong'}
             >
