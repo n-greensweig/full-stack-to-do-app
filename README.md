@@ -26,7 +26,6 @@ This is a full-stack to-do app that allows one to add and delete to-do items fro
 - [ ] Dullen and strikethrough the text of tasks that are completed
 - [ ] Add spacing between columns
 - [ ] Responsiveness
-- [ ] Toggle light and dark mode
 
 ### Last steps
 - [ ] Comment code

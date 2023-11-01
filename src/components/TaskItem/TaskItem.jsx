@@ -39,23 +39,6 @@ function TaskItem(props) {
     // Returns a row for each task item
     return (
 
-        // <Grid item xs={12} md={4}>
-        //     <Card>
-        //         <CardContent>
-        //                 {/* Main content goes gere */}
-        //                 <Typography variant="h3">
-        //                     {/* MUI way of adding an h3 */}
-        //                 </Typography>
-        //                 <Typography>
-
-        //                 </Typography>
-        //             <CardActions>
-        //                 {/* Buttons go here */}
-        //             </CardActions>
-        //         </CardContent>
-        //     </Card>
-        // </Grid>
-
         <tr>
             <td><CheckboxButton id={props.id} getTaskList={props.getTaskList} task={props.task} /></td>
             <td

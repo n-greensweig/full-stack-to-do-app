@@ -22,15 +22,15 @@
   to { transform: rotate(360deg); }
 }
 
-/* #container {
+#container {
   text-align: center;
-} */
+}
 
 h1, h2 {
   color: rgb(89, 154, 238);
 }
 
-/* .flex {
+.flex {
   display: flex;
   justify-content: center;
-} */
+}

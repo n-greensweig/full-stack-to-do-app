@@ -41,17 +41,19 @@ function App() {
 
   return (
 
-    <Container maxWidth="md">
+    <Container id='container' maxWidth="md">
 
 
       <MainHeading />
 
       <UserForm getTaskList={getTaskList} />
-      <SortTasks getTaskList={getTaskList} setTaskList={setTaskList} sortedResults={sortedResults} setSortedResults={setSortedResults} isSorted={isSorted} setIsSorted={setIsSorted} />
-      <SearchTasks taskList={taskList} getTaskList={getTaskList} setTaskList={setTaskList} />
+      <div className='flex'>
+        <SortTasks getTaskList={getTaskList} setTaskList={setTaskList} sortedResults={sortedResults} setSortedResults={setSortedResults} isSorted={isSorted} setIsSorted={setIsSorted} />
+        <SearchTasks taskList={taskList} getTaskList={getTaskList} setTaskList={setTaskList} />
+      </div>
       <ListSubHeading />
       <TaskList taskList={taskList} getTaskList={getTaskList} setTaskList={setTaskList} />
-    
+
     </Container>
 
   );

@@ -14,7 +14,7 @@ import Box from '@mui/material/Box';
 import Select from '@mui/material/Select';
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
-import Dropdown from '../Dropdown/Dropdown';
+// import Dropdown from '../Dropdown/Dropdown';
 
 function UserForm(props) {
 
@@ -63,7 +63,7 @@ function UserForm(props) {
             <form id='user-input' onSubmit={sendTaskToServer}>
 
                 <Box sx={{ minWidth: 120 }}>
-                    <FormControl variant='outlined' fullWidth sx={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+                    <FormControl variant='outlined' fullWidth sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', gap: '30px' }}>
 
                         {/* First input field */}
                         <TextField
@@ -75,7 +75,7 @@ function UserForm(props) {
 
                     </FormControl><br></br>
 
-                    <FormControl>
+                    <FormControl variant='outlined' fullWidth sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', gap: '30px' }}>
 
                         {/* Second input field */}
                         <DatePicker
@@ -89,7 +89,7 @@ function UserForm(props) {
                         />
                     </FormControl><br></br>
 
-                    <FormControl sx={{ width: '100%' }}>
+                    <FormControl variant='outlined' fullWidth sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', gap: '30px' }}>
 
                         {/* Priority drop-down */}
                         <InputLabel id='dropdown-label'>Priority</InputLabel>
@@ -97,11 +97,13 @@ function UserForm(props) {
                             className='margin'
                             labelId="dropdown-label"
                             id="dropdown"
+                            defaultValue={''}
                             value={props.priority}
                             label="Priority"
                             onChange={e => props.setPriority(e.target.value)}
                             sx={{ width: '100%' }}
                         >
+                            <MenuItem value={'None'}><em>None</em></MenuItem>
                             <MenuItem value={'Low'}>Low</MenuItem>
                             <MenuItem value={'Medium'}>Medium</MenuItem>
                             <MenuItem value={'High'}>High</MenuItem>
