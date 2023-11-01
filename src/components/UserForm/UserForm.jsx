@@ -100,7 +100,7 @@ function UserForm(props) {
                             defaultValue={''}
                             value={props.priority}
                             label="Priority"
-                            onChange={e => props.setPriority(e.target.value)}
+                            onChange={e => setPriority(e.target.value)}
                             sx={{ width: '100%' }}
                         >
                             <MenuItem value={'None'}><em>None</em></MenuItem>

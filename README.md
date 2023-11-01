@@ -19,14 +19,13 @@ This is a full-stack to-do app that allows one to add and delete to-do items fro
 ### Handling PostgreSQL data
 - [ ] Handle null dates
 - [ ] Allow for date and priority editing within to-dos
-- [ ] Filter by dates
+- [ ] Filter by date (and priority? and completed?)
 
 ### Styling
 - [ ] Change text color if item is marked high priority
-- [ ] Dullen and strikethrough the text of tasks that are completed
 - [ ] Add spacing between columns
 - [ ] Responsiveness
 
 ### Last steps
 - [ ] Comment code
-- [ ] Update README with screenshot
+- [ ] Update README with screenshot, installation instructions, and description

@@ -1,7 +1,16 @@
-td {
+.strong {
+    color: black;
+}
+
+.dullen {
     color: gray;
+    text-decoration: line-through;
 }
 
 .underline {
     border-bottom: 1px dashed gray;
+}
+
+td {
+    padding: 1rem 2rem;
 }

@@ -1,6 +1,5 @@
 import './TaskList.css';
 import TaskItem from '../TaskItem/TaskItem';
-import Grid from '@mui/material/Grid';
 
 function TaskList(props) {
 

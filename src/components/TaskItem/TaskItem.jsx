@@ -5,17 +5,14 @@ import CheckboxButton from "../Buttons/CheckboxButton/CheckboxButton";
 import DeleteButton from "../Buttons/DeleteButton/DeleteButton";
 import axios from "axios";
 import './TaskItem.css';
-import Grid from '@mui/material/Grid';
-import Card from '@mui/material/Card';
-import CardActions from '@mui/material/CardActions';
-import CardContent from '@mui/material/CardContent';
-import Typography from '@mui/material/Typography';
+import Select from '@mui/material/Select';
+import MenuItem from '@mui/material/MenuItem';
 
 function TaskItem(props) {
 
     let formattedDate = `${new Date(props.task.dueDate).getMonth() + 1}/${new Date(props.task.dueDate).getDate()}/${new Date(props.task.dueDate).getFullYear()}`;
 
-    const [task, setTask] = useState('');
+    const [task, setTask] = useState(props.task.task);
 
     const saveEditedTask = (e) => {
 
@@ -34,6 +31,9 @@ function TaskItem(props) {
 
     };
 
+
+
+
     // POST request to change the dates onchange/onblur
 
     // Returns a row for each task item
@@ -41,8 +41,9 @@ function TaskItem(props) {
 
         <tr>
             <td><CheckboxButton id={props.id} getTaskList={props.getTaskList} task={props.task} /></td>
+            {/* 500 error when double clicking into task item */}
             <td
-                className="underline"
+                className={props.task.completed ? 'underline dullen' : 'underline strong'}
                 contentEditable={true}
                 suppressContentEditableWarning={true}
                 value={task}
@@ -54,7 +55,11 @@ function TaskItem(props) {
 
             </td>
             <td>{<DatePicker value={formattedDate} />}</td>
-            <td>{props.task.priority}</td>
+            <td 
+            className={props.task.completed ? 'dullen' : 'strong'}
+            >
+                {props.task.priority}
+            </td>
             <td><DeleteButton id={props.id} getTaskList={props.getTaskList} /></td>
         </tr>
 
