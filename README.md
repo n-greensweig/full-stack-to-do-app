@@ -20,10 +20,10 @@ This is a full-stack to-do app that allows one to add and delete to-do items fro
 - [ ] Handle null dates
 - [ ] Allow for date and priority editing within to-dos
 - [ ] Filter by date (and priority? and completed?)
+- [ ] Sort ASC and DESC
 
 ### Styling
 - [ ] Change text color if item is marked high priority
-- [ ] Add spacing between columns
 - [ ] Responsiveness
 
 ### Last steps

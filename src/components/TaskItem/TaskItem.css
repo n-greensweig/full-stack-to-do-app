@@ -14,3 +14,19 @@
 td {
     padding: 1rem;
 }
+
+.high {
+    color: red;
+}
+
+.medium {
+    color: orange;
+}
+
+.low {
+    color: #550000;
+}
+
+.none {
+    color: white;
+}

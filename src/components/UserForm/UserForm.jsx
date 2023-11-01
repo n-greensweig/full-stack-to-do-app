@@ -62,8 +62,9 @@ function UserForm(props) {
             {/* User input form */}
             <form id='user-input' onSubmit={sendTaskToServer}>
 
-                <Box sx={{ minWidth: 120 }}>
-                    <FormControl variant='outlined' fullWidth sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', gap: '30px' }}>
+                {/* <Box sx={{ minWidth: 120 }}> */}
+                <div className='flex'>
+                    <FormControl variant='outlined' fullWidth sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', gap: '30px', marginRight: '2rem' }}>
 
                         {/* First input field */}
                         <TextField
@@ -73,9 +74,9 @@ function UserForm(props) {
                             variant='outlined'
                             onChange={e => setTask(e.target.value)} required />
 
-                    </FormControl><br></br>
+                    </FormControl>
 
-                    <FormControl variant='outlined' fullWidth sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', gap: '30px' }}>
+                    <FormControl variant='outlined' fullWidth sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', gap: '30px', marginRight: '2rem' }}>
 
                         {/* Second input field */}
                         <DatePicker
@@ -87,9 +88,9 @@ function UserForm(props) {
                             isClearable={true}
                             placeholderText='Due Date'
                         />
-                    </FormControl><br></br>
+                    </FormControl>
 
-                    <FormControl variant='outlined' fullWidth sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', gap: '30px' }}>
+                    <FormControl variant='outlined' fullWidth sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', gap: '30px', marginRight: '2rem' }}>
 
                         {/* Priority drop-down */}
                         <InputLabel id='dropdown-label'>Priority</InputLabel>
@@ -112,8 +113,8 @@ function UserForm(props) {
 
                     {/* Submit button */}
                     <ButtonComponent function={sendTaskToServer} type={'submit'} name={'Save'} />
-
-                </Box>
+                </div>
+                {/* </Box> */}
 
 
 

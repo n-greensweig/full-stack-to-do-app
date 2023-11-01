@@ -36,6 +36,7 @@ function TaskItem(props) {
 
     // POST request to change the dates onchange/onblur
 
+
     // Returns a row for each task item
     return (
 
@@ -57,7 +58,8 @@ function TaskItem(props) {
             {/* Edit here */}
             <td>{formattedDate === '12/31/1969' ? <DatePicker value={new Date()} /> : <DatePicker value={formattedDate} />}</td>
             <td 
-            className={props.task.completed ? 'dullen' : 'strong'}
+            // className={props.task.completed ? 'dullen' : 'strong'}
+            className={props.task.completed ? 'dullen' : 'strong' && props.task.priority === 'High' ? 'high' : (props.task.priority === 'Medium' ? 'medium' : (props.task.priority === 'Low' ? 'low' : 'none'))}
             >
                 {props.task.priority}
             </td>
