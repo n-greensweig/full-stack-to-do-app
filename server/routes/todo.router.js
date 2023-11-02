@@ -51,6 +51,8 @@ router.get('/sortedResults', (req, res) => {
 // POST
 router.post('/', (req, res) => {
 
+    console.log(req.body.priority);
+
     let queryText = `
     INSERT INTO "todo" ("task", "dueDate", "priority")
     VALUES ($1, $2, $3);
@@ -66,7 +68,7 @@ router.post('/', (req, res) => {
                 res.sendStatus(500);
             });
     } else {
-        pool.query(queryText, [req.body.task, req.body.dueDate, null])
+        pool.query(queryText, [req.body.task, req.body.dueDate, req.body.priority])
             .then(response => {
                 res.sendStatus(200);
             })

@@ -39,7 +39,7 @@ function UserForm(props) {
             .then(response => {
                 props.getTaskList();
 
-                console.log(task);
+                console.log(priority);
                 // Reset values
                 setTask('');
                 setDueDate(null);
