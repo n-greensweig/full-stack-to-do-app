@@ -35,8 +35,7 @@ router.get('/search', (req, res) => {
 // GET sorted results
 router.get('/sortedResults', (req, res) => {
 
-    // Is there another way to parameterize column names?
-    let queryText = `SELECT * FROM "todo" ORDER BY "${req.query.sort}" DESC;`;
+    let queryText = `SELECT * FROM "todo" ORDER BY "${req.query.sort}" ASC;`;
     pool.query(queryText)
         .then(result => {
             console.log('hi', req.query.sort);
@@ -56,14 +55,26 @@ router.post('/', (req, res) => {
     INSERT INTO "todo" ("task", "dueDate", "priority")
     VALUES ($1, $2, $3);
     `;
-    pool.query(queryText, [req.body.task, req.body.dueDate, req.body.priority])
-        .then(response => {
-            res.sendStatus(200);
-        })
-        .catch(error => {
-            console.error(error);
-            res.sendStatus(500);
-        });
+
+    if (req.body.priority === 'None') {
+        pool.query(queryText, [req.body.task, req.body.dueDate, null])
+            .then(response => {
+                res.sendStatus(200);
+            })
+            .catch(error => {
+                console.error(error);
+                res.sendStatus(500);
+            });
+    } else {
+        pool.query(queryText, [req.body.task, req.body.dueDate, null])
+            .then(response => {
+                res.sendStatus(200);
+            })
+            .catch(error => {
+                console.error(error);
+                res.sendStatus(500);
+            });
+    }
 
 });
 

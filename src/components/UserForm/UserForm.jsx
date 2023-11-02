@@ -23,6 +23,9 @@ function UserForm(props) {
     const [dueDate, setDueDate] = useState(null);
     const [priority, setPriority] = useState(null);
 
+    // Reset the form upon submission
+    const [formKey, setFormKey] = useState(0);
+
     // POST request to run on form submission
     const sendTaskToServer = event => {
 
@@ -36,10 +39,13 @@ function UserForm(props) {
             .then(response => {
                 props.getTaskList();
 
+                console.log(task);
                 // Reset values
                 setTask('');
                 setDueDate(null);
                 setPriority(null);
+
+                setFormKey(prevKey => prevKey + 1);
             })
             .catch(error => {
                 console.error(error);
@@ -60,7 +66,7 @@ function UserForm(props) {
 
 
             {/* User input form */}
-            <form id='user-input' onSubmit={sendTaskToServer}>
+            <form key={formKey} id='user-input' onSubmit={sendTaskToServer}>
 
                 {/* <Box sx={{ minWidth: 120 }}> */}
                 <div className='flex'>
@@ -98,7 +104,7 @@ function UserForm(props) {
                             className='margin'
                             labelId="dropdown-label"
                             id="dropdown"
-                            defaultValue={''}
+                            defaultValue={'None'}
                             value={props.priority}
                             label="Priority"
                             onChange={e => setPriority(e.target.value)}

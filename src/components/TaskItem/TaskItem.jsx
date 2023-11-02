@@ -36,15 +36,12 @@ function TaskItem(props) {
     // POST request to change the dates onchange/onblur
     const saveEditedDueDate = (date) => {
 
-        // Set due date as the user's new input on 
-        // setEditedDueDate(e.target.value);
-
         // POST request to update the due date in PostgreSQL
         axios.post(`/todo/update-due-date/${props.id}`, {
             dueDate: date,
         }).then(response => {
-            console.log(editedDueDate);
             props.getTaskList();
+            // setEditedDueDate(new Date(formattedDate));
         }).catch(error => {
             console.error(error);
             alert('Something went wrong.');
@@ -53,9 +50,8 @@ function TaskItem(props) {
     };
 
     const handleDateChange = (date) => {
-        console.log('handleDateChange called with date:', date);
-        setEditedDueDate(date);
         saveEditedDueDate(date);
+        setEditedDueDate(date);
     };
 
     // Returns a row for each task item
@@ -64,6 +60,7 @@ function TaskItem(props) {
         <tr>
             <td><CheckboxButton id={props.id} getTaskList={props.getTaskList} task={props.task} /></td>
             {/* 500 error when double clicking into task item */}
+
             <td
                 className={props.task.completed ? 'underline dullen' : 'underline strong'}
                 contentEditable={true}
@@ -72,17 +69,13 @@ function TaskItem(props) {
                 onInput={e => setTask(e.currentTarget.textContent)}
                 onBlur={saveEditedTask}
             >
-
                 {props.task.task}
-
             </td>
+
             {/* Edit here */}
-            <td>{
-                <DatePicker
-                    // value={editedDueDate}
+            <td>{<DatePicker
                     selected={editedDueDate}
                     onChange={handleDateChange}
-                    // onBlur={handleDateChange}
                     dateFormat='MM/dd/yyyy'
                     isClearable={true}
                 />}

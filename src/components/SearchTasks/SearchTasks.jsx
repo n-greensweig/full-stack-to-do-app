@@ -1,6 +1,5 @@
 import { useState } from "react";
 import axios from "axios";
-import ButtonComponent from "../Buttons/ButtonComponent/ButtonComponent";
 
 import FormControl from '@mui/material/FormControl';
 import TextField from '@mui/material/TextField';
@@ -35,7 +34,6 @@ function SearchTasks(props) {
                     variant='outlined'
                     onChange={e => setSearch(e.target.value)}
                     value={search} />
-                <ButtonComponent type='submit' function={handleSearch} name={'Search'} />
             </FormControl>
         </form>
     )
