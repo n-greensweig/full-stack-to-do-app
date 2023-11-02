@@ -11,7 +11,8 @@ import MenuItem from '@mui/material/MenuItem';
 function TaskItem(props) {
 
     let formattedDate = `${new Date(props.task.dueDate).getMonth() + 1}/${new Date(props.task.dueDate).getDate()}/${new Date(props.task.dueDate).getFullYear()}`;
-    
+    console.log(formattedDate);
+
     const [task, setTask] = useState(props.task.task);
     const [editedDueDate, setEditedDueDate] = useState(new Date(formattedDate));
 
@@ -72,12 +73,17 @@ function TaskItem(props) {
             </td>
 
             {/* Edit here */}
-            <td>{<DatePicker
-                selected={new Date(formattedDate)}
-                onChange={handleDateChange}
-                dateFormat='MM/dd/yyyy'
-                isClearable={true}
-            />}
+            <td>{
+                formattedDate === '12/31/1969' ? <DatePicker
+                    onChange={handleDateChange}
+                    dateFormat='MM/dd/yyyy'
+                    isClearable={true}
+                /> : <DatePicker
+                    selected={new Date(formattedDate)}
+                    onChange={handleDateChange}
+                    dateFormat='MM/dd/yyyy'
+                    isClearable={true}
+                />}
             </td>
             <td
                 className={props.task.completed ? 'dullen' : 'strong' && props.task.priority === 'High' ? 'high' : (props.task.priority === 'Medium' ? 'medium' : (props.task.priority === 'Low' ? 'low' : 'none'))}
