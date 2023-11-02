@@ -17,13 +17,12 @@ This is a full-stack to-do app that allows one to add and delete to-do items fro
 ## Features to add
 
 ### Handling PostgreSQL data
-- [ ] Handle null dates
+- [ ] Handle null dates and null/none priorities
 - [ ] Allow for date and priority editing within to-dos
 - [ ] Filter by date (and priority? and completed?)
 - [ ] Sort ASC and DESC
 
 ### Styling
-- [ ] Change text color if item is marked high priority
 - [ ] Responsiveness
 
 ### Last steps

@@ -13,6 +13,7 @@ function TaskItem(props) {
     let formattedDate = `${new Date(props.task.dueDate).getMonth() + 1}/${new Date(props.task.dueDate).getDate()}/${new Date(props.task.dueDate).getFullYear()}`;
 
     const [task, setTask] = useState(props.task.task);
+    const [editedDueDate, setEditedDueDate] = useState(new Date(formattedDate));
 
     const saveEditedTask = (e) => {
 
@@ -32,10 +33,30 @@ function TaskItem(props) {
     };
 
 
-
-
     // POST request to change the dates onchange/onblur
+    const saveEditedDueDate = (date) => {
 
+        // Set due date as the user's new input on 
+        // setEditedDueDate(e.target.value);
+
+        // POST request to update the due date in PostgreSQL
+        axios.post(`/todo/update-due-date/${props.id}`, {
+            dueDate: date,
+        }).then(response => {
+            console.log(editedDueDate);
+            props.getTaskList();
+        }).catch(error => {
+            console.error(error);
+            alert('Something went wrong.');
+        });
+
+    };
+
+    const handleDateChange = (date) => {
+        console.log('handleDateChange called with date:', date);
+        setEditedDueDate(date);
+        saveEditedDueDate(date);
+    };
 
     // Returns a row for each task item
     return (
@@ -56,10 +77,18 @@ function TaskItem(props) {
 
             </td>
             {/* Edit here */}
-            <td>{formattedDate === '12/31/1969' ? <DatePicker value={new Date()} /> : <DatePicker value={formattedDate} />}</td>
-            <td 
-            // className={props.task.completed ? 'dullen' : 'strong'}
-            className={props.task.completed ? 'dullen' : 'strong' && props.task.priority === 'High' ? 'high' : (props.task.priority === 'Medium' ? 'medium' : (props.task.priority === 'Low' ? 'low' : 'none'))}
+            <td>{
+                <DatePicker
+                    // value={editedDueDate}
+                    selected={editedDueDate}
+                    onChange={handleDateChange}
+                    // onBlur={handleDateChange}
+                    dateFormat='MM/dd/yyyy'
+                    isClearable={true}
+                />}
+            </td>
+            <td
+                className={props.task.completed ? 'dullen' : 'strong' && props.task.priority === 'High' ? 'high' : (props.task.priority === 'Medium' ? 'medium' : (props.task.priority === 'Low' ? 'low' : 'none'))}
             >
                 {props.task.priority}
             </td>

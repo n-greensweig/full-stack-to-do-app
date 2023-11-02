@@ -101,6 +101,25 @@ router.post('/:id', (req, res) => {
 
 });
 
+// POST request to update due date on user edit
+router.post('/update-due-date/:id', (req, res) => {
+
+    console.log(req.body.dueDate);
+
+    let queryText = `
+    UPDATE "todo" SET "dueDate" = $1 WHERE "id" = $2;
+    `;
+    pool.query(queryText, [req.body.dueDate, req.params.id])
+        .then(response => {
+            res.sendStatus(200);
+        })
+        .catch(error => {
+            console.error(error);
+            res.sendStatus(500);
+        });
+
+});
+
 // DELETE
 router.delete('/:id', (req, res) => {
 
