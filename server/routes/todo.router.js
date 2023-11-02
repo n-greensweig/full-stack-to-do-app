@@ -133,6 +133,38 @@ router.post('/update-due-date/:id', (req, res) => {
 
 });
 
+// POST request to update due date on user edit
+router.post('/update-priority/:id', (req, res) => {
+
+    console.log(req.body.priority);
+
+    let queryText = `
+    UPDATE "todo" SET "priority" = $1 WHERE "id" = $2;
+    `;
+
+    if (req.body.priority === 'None') {
+        pool.query(queryText, [null, req.params.id])
+            .then(response => {
+                res.sendStatus(200);
+            })
+            .catch(error => {
+                console.error(error);
+                res.sendStatus(500);
+            });
+        } else {
+            pool.query(queryText, [req.body.priority, req.params.id])
+                .then(response => {
+                    res.sendStatus(200);
+                })
+                .catch(error => {
+                    console.error(error);
+                    res.sendStatus(500);
+                });
+    }
+
+
+});
+
 // DELETE
 router.delete('/:id', (req, res) => {
 
