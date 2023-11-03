@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import DatePicker from "react-datepicker";
-import 'react-datepicker/dist/react-datepicker.css';
+// import DatePicker from "react-datepicker";
+// import 'react-datepicker/dist/react-datepicker.css';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import axios from 'axios';
@@ -14,7 +14,8 @@ import Box from '@mui/material/Box';
 import Select from '@mui/material/Select';
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
-// import Dropdown from '../Dropdown/Dropdown';
+import { Grid } from '@mui/material';
+import { DatePicker } from '@mui/x-date-pickers';
 
 function UserForm(props) {
 
@@ -70,7 +71,7 @@ function UserForm(props) {
 
                 {/* <Box sx={{ minWidth: 120 }}> */}
                 <div className='flex'>
-                    <FormControl variant='outlined' fullWidth sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', gap: '30px', marginRight: '2rem' }}>
+                    <FormControl variant='outlined' fullWidth sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', gap: 1000, marginRight: '2rem' }}>
 
                         {/* First input field */}
                         <TextField
@@ -82,19 +83,19 @@ function UserForm(props) {
 
                     </FormControl>
 
-                    <FormControl variant='outlined' fullWidth sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', gap: '30px', marginRight: '2rem' }}>
+                    <FormControl variant='outlined' fullWidth>
 
-                        {/* Second input field */}
-                        <DatePicker
-                            className={'datepicker margin form-input'}
-                            value={dueDate}
-                            selected={dueDate}
-                            onChange={handleDateChange}
-                            dateFormat={'MM/dd/yyyy'}
-                            isClearable={true}
-                            placeholderText='Due Date'
-                        />
-                    </FormControl>
+                            {/* Second input field */}
+                            <DatePicker
+                                label='Due date'
+                                className={'datepicker margin form-input'}
+                                value={dueDate}
+                                selected={dueDate}
+                                onChange={handleDateChange}
+                                dateFormat={'MM/dd/yyyy'}
+                                 />
+
+                        </FormControl>
 
                     <FormControl variant='outlined' fullWidth sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', gap: '30px', marginRight: '2rem' }}>
 
@@ -121,10 +122,8 @@ function UserForm(props) {
                     <ButtonComponent function={sendTaskToServer} type={'submit'} name={'Save'} />
                 </div>
                 {/* </Box> */}
-
-
-
             </form>
+
 
         </LocalizationProvider>
 
