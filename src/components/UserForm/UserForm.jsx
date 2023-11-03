@@ -1,20 +1,16 @@
 import React, { useState } from 'react';
-// import DatePicker from "react-datepicker";
-// import 'react-datepicker/dist/react-datepicker.css';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import axios from 'axios';
 import './UserForm.css';
-import ButtonComponent from '../Buttons/ButtonComponent/ButtonComponent';
 
 import FormControl from '@mui/material/FormControl';
 import TextField from '@mui/material/TextField';
 
-import Box from '@mui/material/Box';
 import Select from '@mui/material/Select';
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
-import { Button, Grid } from '@mui/material';
+import { Button } from '@mui/material';
 import { DatePicker } from '@mui/x-date-pickers';
 import SendIcon from '@mui/icons-material/Send';
 
@@ -69,8 +65,6 @@ function UserForm(props) {
 
             {/* User input form */}
             <form key={formKey} id='user-input' onSubmit={sendTaskToServer}>
-
-                {/* <Box sx={{ minWidth: 120 }}> */}
                 <div className='flex'>
                     <FormControl variant='outlined' fullWidth sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', gap: 1000, marginRight: '2rem' }}>
 
@@ -122,7 +116,6 @@ function UserForm(props) {
                     {/* Submit button */}
                     <Button variant='outlined' fullWidth onClick={sendTaskToServer} type='submit' startIcon={<SendIcon />}>Save</Button>
                 </div>
-                {/* </Box> */}
             </form>
 
 
