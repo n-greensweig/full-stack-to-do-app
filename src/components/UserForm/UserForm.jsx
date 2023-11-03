@@ -13,6 +13,7 @@ import MenuItem from '@mui/material/MenuItem';
 import { Button } from '@mui/material';
 import { DatePicker } from '@mui/x-date-pickers';
 import SendIcon from '@mui/icons-material/Send';
+import swal from 'sweetalert';
 
 function UserForm(props) {
 
@@ -29,26 +30,31 @@ function UserForm(props) {
 
         event.preventDefault();
 
-        axios.post('/todo', {
-            task: task,
-            dueDate: dueDate,
-            priority: priority,
-        })
-            .then(response => {
-                props.getTaskList();
+        if (task === '') {
+            swal('Please provide a task name!');
+        } else {
 
-                console.log(priority);
-                // Reset values
-                setTask('');
-                setDueDate(null);
-                setPriority(null);
-
-                setFormKey(prevKey => prevKey + 1);
+            axios.post('/todo', {
+                task: task,
+                dueDate: dueDate,
+                priority: priority,
             })
-            .catch(error => {
-                console.error(error);
-                alert('Something went wrong.');
-            });
+                .then(response => {
+                    props.getTaskList();
+
+                    console.log(priority);
+                    // Reset values
+                    setTask('');
+                    setDueDate(null);
+                    setPriority(null);
+
+                    setFormKey(prevKey => prevKey + 1);
+                })
+                .catch(error => {
+                    console.error(error);
+                    alert('Something went wrong.');
+                });
+        }
 
     };
 
@@ -74,7 +80,8 @@ function UserForm(props) {
                             className='margin'
                             label='Task'
                             variant='outlined'
-                            onChange={e => setTask(e.target.value)} required />
+                            onChange={e => setTask(e.target.value)}
+                            required />
 
                     </FormControl>
 
