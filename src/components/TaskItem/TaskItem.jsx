@@ -121,20 +121,29 @@ function TaskItem(props) {
                         defaultValue={props.task.priority === null ? '' : props.task.priority}
                         label="Priority"
                         onChange={handlePriorityChange}
-                        sx={{ width: '100%' }}
+                        sx={{ width: '100%',
+
+                        backgroundColor: props.task.priority === null ||
+                        props.task.priority === 'None' ? 'white' :
+                        props.task.priority === 'Low' ? 'lightgray' :
+                        props.task.priority === 'Medium' ? 'orange' : 'red',
+
+                        color: 'white'
+                    
+                    }}
                     >
-                        <MenuItem value={'None'}><em>None</em></MenuItem>
-                        <MenuItem value={'Low'}>Low</MenuItem>
-                        <MenuItem value={'Medium'}>Medium</MenuItem>
-                        <MenuItem value={'High'}>High</MenuItem>
-                    </Select>
-                </td>
-                <td>
-                    {/* <Button startIcon={<DeleteIcon style={{color: 'red'}} />}></Button> */}
-                    <DeleteButton id={props.id} getTaskList={props.getTaskList} />
-                </td>
-            </tr>
-        </LocalizationProvider>
+                    <MenuItem value={'None'}><em>None</em></MenuItem>
+                    <MenuItem value={'Low'}>Low</MenuItem>
+                    <MenuItem value={'Medium'}>Medium</MenuItem>
+                    <MenuItem value={'High'}>High</MenuItem>
+                </Select>
+            </td>
+            <td>
+                {/* <Button startIcon={<DeleteIcon style={{color: 'red'}} />}></Button> */}
+                <DeleteButton id={props.id} getTaskList={props.getTaskList} />
+            </td>
+        </tr>
+        </LocalizationProvider >
 
     )
 
