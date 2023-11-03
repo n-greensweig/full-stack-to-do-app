@@ -1,7 +1,7 @@
 function ListSubHeading() {
 
 return (
-    <h2>To-Do List</h2>
+    <h2>To-dos</h2>
 )
 
 }

@@ -149,14 +149,22 @@ router.post('/update-due-date/:id', (req, res) => {
 // POST request to update due date on user edit
 router.post('/update-priority/:id', (req, res) => {
 
-    console.log(req.body.priority);
+    let priorityOrder;
+    if (req.body.priority === null) {
+        priorityOrder = 0;
+    } else if (req.body.priority === 'Low') {
+        priorityOrder = 1;
+    } else if (req.body.priority === 'Medium') {
+        priorityOrder = 2;
+    } else if (req.body.priority === 'High') {
+        priorityOrder = 3;
+    }
 
     let queryText = `
-    UPDATE "todo" SET "priority" = $1 WHERE "id" = $2;
+    UPDATE "todo" SET "priority" = $1, "priorityOrder" = $2 WHERE "id" = $3;
     `;
 
-    if (req.body.priority === 'None') {
-        pool.query(queryText, [null, req.params.id])
+        pool.query(queryText, [req.body.priority, priorityOrder, req.params.id])
             .then(response => {
                 res.sendStatus(200);
             })
@@ -164,16 +172,6 @@ router.post('/update-priority/:id', (req, res) => {
                 console.error(error);
                 res.sendStatus(500);
             });
-    } else {
-        pool.query(queryText, [req.body.priority, req.params.id])
-            .then(response => {
-                res.sendStatus(200);
-            })
-            .catch(error => {
-                console.error(error);
-                res.sendStatus(500);
-            });
-    }
 
 
 });
