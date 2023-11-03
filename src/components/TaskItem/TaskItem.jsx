@@ -123,12 +123,13 @@ function TaskItem(props) {
                         onChange={handlePriorityChange}
                         sx={{ width: '100%',
 
-                        backgroundColor: props.task.priority === null ||
+                        backgroundColor: props.task.completed ? 'white' :
+                        props.task.priority === null ||
                         props.task.priority === 'None' ? 'white' :
                         props.task.priority === 'Low' ? 'lightgray' :
                         props.task.priority === 'Medium' ? 'orange' : 'red',
 
-                        color: 'white'
+                        color: props.task.completed ? 'lightgray' : 'white'
                     
                     }}
                     >
