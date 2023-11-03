@@ -10,8 +10,7 @@ function SortTasks(props) {
 
     const [selectedOption, setSelectedOption] = useState('Completion status');
 
-    /* Here's what we need from the sort:
-    - Adjust sort by priority to go in order of Null -> Low -> Medium -> High
+    /*
     - Keep sorted results past page refresh?
     */
 
@@ -35,13 +34,15 @@ function SortTasks(props) {
             sortParam = 'dueDate-ASC';
         } else if (selectedOption === 'Due date (Desc)') {
             sortParam = 'dueDate-DESC';
-        } else if (selectedOption === 'Priority') {
-            sortParam = 'priority';
+        } else if (selectedOption === 'Priority (Asc)') {
+            sortParam = 'priorityOrder-ASC';
+        } else if (selectedOption === 'Priority (Desc)') {
+            sortParam = 'priorityOrder-DESC';
         }
 
         axios.get(`/todo/sortedResults?sort=${sortParam}`)
             .then(response => {
-                props.setSortedResults(response.data);
+                console.log(response.data);
                 props.setTaskList(response.data);
             })
             .catch(error => {
@@ -70,7 +71,8 @@ function SortTasks(props) {
                     <MenuItem value={'Completion status (Complete to incomplete)'}>Completion status (Complete to incomplete)</MenuItem>
                     <MenuItem value={'Due date (Asc)'}>Due date (Asc)</MenuItem>
                     <MenuItem value={'Due date (Desc)'}>Due date (Desc)</MenuItem>
-                    <MenuItem value={'Priority'}>Priority</MenuItem>
+                    <MenuItem value={'Priority (Asc)'}>Priority (Asc)</MenuItem>
+                    <MenuItem value={'Priority (Desc)'}>Priority (Desc)</MenuItem>
                 </Select>
                 <ButtonComponent type={'submit'} function={handleSort} setTaskList={props.setTaskList} name={'Sort'} />
             </FormControl>

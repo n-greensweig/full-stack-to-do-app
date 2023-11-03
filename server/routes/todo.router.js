@@ -35,15 +35,10 @@ router.get('/search', (req, res) => {
 // GET sorted results
 router.get('/sortedResults', (req, res) => {
 
-    console.log(req.query.sort);
-    console.log(req.query.sort.includes('-'));
     let queryText;
     if (req.query.sort.includes('-')) {
-        console.log('hi');
         queryText = `SELECT * FROM "todo" ORDER BY "${req.query.sort.split('-')[0]}" ${req.query.sort.split('-')[1]};`
-        console.log(queryText);
     } else {
-        console.log('hello');
         queryText = `SELECT * FROM "todo" ORDER BY "${req.query.sort}";`
     }
     pool.query(queryText)
@@ -60,32 +55,41 @@ router.get('/sortedResults', (req, res) => {
 // POST
 router.post('/', (req, res) => {
 
-    console.log(req.body.priority);
+    let priorityOrder;
+    if (req.body.priority === null) {
+        priorityOrder = 0;
+    } else if (req.body.priority === 'Low') {
+        priorityOrder = 1;
+    } else if (req.body.priority === 'Medium') {
+        priorityOrder = 2;
+    } else if (req.body.priority === 'High') {
+        priorityOrder = 3;
+    }
 
     let queryText = `
-    INSERT INTO "todo" ("task", "dueDate", "priority")
-    VALUES ($1, $2, $3);
+    INSERT INTO "todo" ("task", "dueDate", "priority", "priorityOrder")
+    VALUES ($1, $2, $3, $4);
     `;
 
-    if (req.body.priority === 'None') {
-        pool.query(queryText, [req.body.task, req.body.dueDate, null])
-            .then(response => {
-                res.sendStatus(200);
-            })
-            .catch(error => {
-                console.error(error);
-                res.sendStatus(500);
-            });
-    } else {
-        pool.query(queryText, [req.body.task, req.body.dueDate, req.body.priority])
-            .then(response => {
-                res.sendStatus(200);
-            })
-            .catch(error => {
-                console.error(error);
-                res.sendStatus(500);
-            });
-    }
+    // if (req.body.priority === null) {
+    //     pool.query(queryText, [req.body.task, req.body.dueDate, null, priorityOrder])
+    //         .then(response => {
+    //             res.sendStatus(200);
+    //         })
+    //         .catch(error => {
+    //             console.error(error);
+    //             res.sendStatus(500);
+    //         });
+    // } else {
+    pool.query(queryText, [req.body.task, req.body.dueDate, req.body.priority, priorityOrder])
+        .then(response => {
+            res.sendStatus(200);
+        })
+        .catch(error => {
+            console.error(error);
+            res.sendStatus(500);
+        });
+    // }
 
 });
 

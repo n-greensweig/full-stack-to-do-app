@@ -14,16 +14,15 @@ This is a full-stack to-do app that allows one to add and delete to-do items fro
 5. Run ```npm run client``` in your terminal
 6. The ```npm run client``` command will open up a new browser tab for you
 
-## Features to add
-
-### Handling PostgreSQL data
-- [ ] Change priority color depending on status
-- [ ] Filter by date (and priority? and completed?)
-- [ ] Sort ASC and DESC, task
-
+## Final steps
 ### Styling
 - [ ] Responsiveness
 
 ### Last steps
 - [ ] Comment code
 - [ ] Update README with screenshot, installation instructions, and description
+
+### Next steps
+- [ ] Change priority color depending on status
+- [ ] Filter by date (and priority? and completed?)
+- [ ] Sort by task?
