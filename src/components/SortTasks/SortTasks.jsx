@@ -31,8 +31,10 @@ function SortTasks(props) {
             sortParam = 'completed-ASC';
         } else if (selectedOption === 'Completion status (Complete to incomplete)') {
             sortParam = 'completed-DESC';
-        } else if (selectedOption === 'Due date') {
-            sortParam = 'dueDate';
+        } else if (selectedOption === 'Due date (Asc)') {
+            sortParam = 'dueDate-ASC';
+        } else if (selectedOption === 'Due date (Desc)') {
+            sortParam = 'dueDate-DESC';
         } else if (selectedOption === 'Priority') {
             sortParam = 'priority';
         }
@@ -65,8 +67,9 @@ function SortTasks(props) {
                     onChange={handleSelectChange}
                 >
                     <MenuItem value={'Completion status (Incomplete to complete)'}>Completion status (Incomplete to complete)</MenuItem>
-                    <MenuItem value={'Completion status (Complete to incomplete)'}>Completion status Completion status (Complete to incomplete)</MenuItem>
-                    <MenuItem value={'Due date'}>Due date</MenuItem>
+                    <MenuItem value={'Completion status (Complete to incomplete)'}>Completion status (Complete to incomplete)</MenuItem>
+                    <MenuItem value={'Due date (Asc)'}>Due date (Asc)</MenuItem>
+                    <MenuItem value={'Due date (Desc)'}>Due date (Desc)</MenuItem>
                     <MenuItem value={'Priority'}>Priority</MenuItem>
                 </Select>
                 <ButtonComponent type={'submit'} function={handleSort} setTaskList={props.setTaskList} name={'Sort'} />
