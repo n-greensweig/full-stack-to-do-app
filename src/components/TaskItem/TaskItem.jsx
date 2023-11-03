@@ -9,6 +9,8 @@ import { DatePicker } from "@mui/x-date-pickers";
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import dayjs from "dayjs";
+import { Button } from "@mui/material";
+import DeleteIcon from '@mui/icons-material/Delete';
 
 function TaskItem(props) {
 
@@ -129,7 +131,10 @@ function TaskItem(props) {
                         <MenuItem value={'High'}>High</MenuItem>
                     </Select>
                 </td>
-                <td><DeleteButton id={props.id} getTaskList={props.getTaskList} /></td>
+                <td>
+                    <Button startIcon={<DeleteIcon style={{color: 'red'}} />}></Button>
+                    {/* <DeleteButton id={props.id} getTaskList={props.getTaskList} /> */}
+                </td>
             </tr>
         </LocalizationProvider>
 
