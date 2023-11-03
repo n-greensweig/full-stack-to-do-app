@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import CheckboxButton from "../Buttons/CheckboxButton/CheckboxButton";
 import DeleteButton from "../Buttons/DeleteButton/DeleteButton";
 import axios from "axios";
@@ -9,8 +9,6 @@ import { DatePicker } from "@mui/x-date-pickers";
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import dayjs from "dayjs";
-import { Button } from "@mui/material";
-import DeleteIcon from '@mui/icons-material/Delete';
 
 function TaskItem(props) {
 

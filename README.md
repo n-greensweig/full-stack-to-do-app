@@ -18,6 +18,7 @@ This is a full-stack to-do app that allows one to add and delete to-do items fro
 - [ ] Responsiveness
 - [ ] Background color
 - [ ] Delete unnecessary code
+- [ ] Update with PUT requests?
 - [ ] Update README with screenshot, installation instructions, and description
 
 ### Next steps

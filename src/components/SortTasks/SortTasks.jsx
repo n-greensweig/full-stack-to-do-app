@@ -10,12 +10,7 @@ function SortTasks(props) {
 
     const [selectedOption, setSelectedOption] = useState('Completion status');
 
-    /*
-    - Keep sorted results past page refresh?
-    */
-
-
-    // GET request that sorts by completed, dueDate, priority ASC, DESC
+    // GET request that sorts by completed, dueDate, priority ASC/DESC
     // as user suggests via drop-down
     const handleSort = (event) => {
 
