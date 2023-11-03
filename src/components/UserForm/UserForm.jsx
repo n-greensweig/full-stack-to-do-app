@@ -14,8 +14,9 @@ import Box from '@mui/material/Box';
 import Select from '@mui/material/Select';
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
-import { Grid } from '@mui/material';
+import { Button, Grid } from '@mui/material';
 import { DatePicker } from '@mui/x-date-pickers';
+import SendIcon from '@mui/icons-material/Send';
 
 function UserForm(props) {
 
@@ -85,17 +86,17 @@ function UserForm(props) {
 
                     <FormControl variant='outlined' fullWidth>
 
-                            {/* Second input field */}
-                            <DatePicker
-                                label='Due date'
-                                className={'datepicker margin form-input'}
-                                value={dueDate}
-                                selected={dueDate}
-                                onChange={handleDateChange}
-                                dateFormat={'MM/dd/yyyy'}
-                                 />
+                        {/* Second input field */}
+                        <DatePicker
+                            label='Due date'
+                            className={'datepicker margin form-input'}
+                            value={dueDate}
+                            selected={dueDate}
+                            onChange={handleDateChange}
+                            dateFormat={'MM/dd/yyyy'}
+                        />
 
-                        </FormControl>
+                    </FormControl>
 
                     <FormControl variant='outlined' fullWidth sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', gap: '30px', marginRight: '2rem' }}>
 
@@ -119,7 +120,7 @@ function UserForm(props) {
                     </FormControl>
 
                     {/* Submit button */}
-                    <ButtonComponent function={sendTaskToServer} type={'submit'} name={'Save'} />
+                    <Button variant='outlined' fullWidth onClick={sendTaskToServer} type='submit' startIcon={<SendIcon />}>Save</Button>
                 </div>
                 {/* </Box> */}
             </form>
