@@ -1,6 +1,8 @@
 import swal from "sweetalert";
 import axios from "axios";
 import ButtonComponent from "../ButtonComponent/ButtonComponent";
+import { Button } from "@mui/material";
+import DeleteIcon from '@mui/icons-material/Delete';
 
 function DeleteButton(props) {
 
@@ -34,8 +36,7 @@ function DeleteButton(props) {
     };
 
     return (
-        // <ButtonComponent onClick={deleteTask} type={'button'} name={'Delete'} />
-        <button onClick={deleteTask}>Delete</button>
+        <Button onClick={deleteTask} startIcon={<DeleteIcon style={{color: 'red'}} />}></Button>
     )
 
 }

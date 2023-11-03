@@ -132,8 +132,8 @@ function TaskItem(props) {
                     </Select>
                 </td>
                 <td>
-                    <Button startIcon={<DeleteIcon style={{color: 'red'}} />}></Button>
-                    {/* <DeleteButton id={props.id} getTaskList={props.getTaskList} /> */}
+                    {/* <Button startIcon={<DeleteIcon style={{color: 'red'}} />}></Button> */}
+                    <DeleteButton id={props.id} getTaskList={props.getTaskList} />
                 </td>
             </tr>
         </LocalizationProvider>
