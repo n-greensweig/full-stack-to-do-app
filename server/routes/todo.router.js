@@ -35,10 +35,19 @@ router.get('/search', (req, res) => {
 // GET sorted results
 router.get('/sortedResults', (req, res) => {
 
-    let queryText = `SELECT * FROM "todo" ORDER BY "${req.query.sort}" ASC;`;
+    console.log(req.query.sort);
+    console.log(req.query.sort.includes('-'));
+    let queryText;
+    if (req.query.sort.includes('-')) {
+        console.log('hi');
+        queryText = `SELECT * FROM "todo" ORDER BY "${req.query.sort.split('-')[0]}" ${req.query.sort.split('-')[1]};`
+        console.log(queryText);
+    } else {
+        console.log('hello');
+        queryText = `SELECT * FROM "todo" ORDER BY "${req.query.sort}";`
+    }
     pool.query(queryText)
         .then(result => {
-            console.log('hi', req.query.sort);
             res.send(result.rows);
         })
         .catch(error => {
@@ -151,15 +160,15 @@ router.post('/update-priority/:id', (req, res) => {
                 console.error(error);
                 res.sendStatus(500);
             });
-        } else {
-            pool.query(queryText, [req.body.priority, req.params.id])
-                .then(response => {
-                    res.sendStatus(200);
-                })
-                .catch(error => {
-                    console.error(error);
-                    res.sendStatus(500);
-                });
+    } else {
+        pool.query(queryText, [req.body.priority, req.params.id])
+            .then(response => {
+                res.sendStatus(200);
+            })
+            .catch(error => {
+                console.error(error);
+                res.sendStatus(500);
+            });
     }
 
 

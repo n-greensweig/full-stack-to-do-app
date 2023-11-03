@@ -27,8 +27,10 @@ function SortTasks(props) {
         let sortParam = '';
         if (selectedOption === 'Task') {
             sortParam = 'task';
-        } else if (selectedOption === 'Completion status') {
-            sortParam = 'completed';
+        } else if (selectedOption === 'Completion status (Incomplete to complete)') {
+            sortParam = 'completed-ASC';
+        } else if (selectedOption === 'Completion status (Complete to incomplete)') {
+            sortParam = 'completed-DESC';
         } else if (selectedOption === 'Due date') {
             sortParam = 'dueDate';
         } else if (selectedOption === 'Priority') {
@@ -41,7 +43,6 @@ function SortTasks(props) {
                 props.setTaskList(response.data);
             })
             .catch(error => {
-                console.log('hey', sortParam);
                 console.error(error);
                 alert('Something went wrong here.');
             });
@@ -63,7 +64,8 @@ function SortTasks(props) {
                     label="Sort"
                     onChange={handleSelectChange}
                 >
-                    <MenuItem value={'Completion status'}>Completion status</MenuItem>
+                    <MenuItem value={'Completion status (Incomplete to complete)'}>Completion status (Incomplete to complete)</MenuItem>
+                    <MenuItem value={'Completion status (Complete to incomplete)'}>Completion status Completion status (Complete to incomplete)</MenuItem>
                     <MenuItem value={'Due date'}>Due date</MenuItem>
                     <MenuItem value={'Priority'}>Priority</MenuItem>
                 </Select>
