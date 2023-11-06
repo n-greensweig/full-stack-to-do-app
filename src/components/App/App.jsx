@@ -48,8 +48,13 @@ function App() {
 
       <UserForm getTaskList={getTaskList} />
       <div className='flex'>
-        <SortTasks getTaskList={getTaskList} setTaskList={setTaskList} sortedResults={sortedResults} setSortedResults={setSortedResults} isSorted={isSorted} setIsSorted={setIsSorted} />
-        <SearchTasks taskList={taskList} getTaskList={getTaskList} setTaskList={setTaskList} />
+        <div style={{ marginRight: '20px' }}>
+          <SortTasks getTaskList={getTaskList} setTaskList={setTaskList} sortedResults={sortedResults} setSortedResults={setSortedResults} isSorted={isSorted} setIsSorted={setIsSorted} />
+        </div>
+
+        <div style={{ marginRight: '20px' }}>
+          <SearchTasks taskList={taskList} getTaskList={getTaskList} setTaskList={setTaskList} />
+        </div>
       </div>
       <ListSubHeading />
       <TaskList taskList={taskList} getTaskList={getTaskList} setTaskList={setTaskList} />

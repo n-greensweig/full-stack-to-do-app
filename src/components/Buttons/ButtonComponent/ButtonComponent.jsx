@@ -3,7 +3,7 @@ import Button from '@mui/material/Button';
 function ButtonComponent(props) {
 
     return (
-        <Button variant='outlined' onClick={props.function} >{props.name}</Button>
+        <Button variant='outlined' sx={{height: '55px'}} onClick={props.function} >{props.name}</Button>
     )
 
 }

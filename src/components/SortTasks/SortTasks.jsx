@@ -55,23 +55,31 @@ function SortTasks(props) {
     return (
 
         <form onSubmit={handleSort}>
-            <FormControl>
-                <InputLabel>Sort</InputLabel>
-                <Select
-                    value={selectedOption}
-                    label="Sort"
-                    onChange={handleSelectChange}
-                >
-                    <MenuItem value={'Completion status (Incomplete to complete)'}>Completion status (Incomplete to complete)</MenuItem>
-                    <MenuItem value={'Completion status (Complete to incomplete)'}>Completion status (Complete to incomplete)</MenuItem>
-                    <MenuItem value={'Due date (Asc)'}>Due date (Asc)</MenuItem>
-                    <MenuItem value={'Due date (Desc)'}>Due date (Desc)</MenuItem>
-                    <MenuItem value={'Priority (Asc)'}>Priority (Asc)</MenuItem>
-                    <MenuItem value={'Priority (Desc)'}>Priority (Desc)</MenuItem>
-                </Select>
-                <ButtonComponent type={'submit'} function={handleSort} setTaskList={props.setTaskList} name={'Sort'} />
-            </FormControl>
-        </form>
+            <div className='flex' style={{ gap: '20px', display:'flex' }}>
+                <div style={{ flex: '1' }}>
+                    <FormControl fullWidth sx={{ display: 'flex', flexDirection: 'column' }}>
+                        <InputLabel>Sort</InputLabel>
+                        <Select
+                            value={selectedOption}
+                            label="Sort"
+                            onChange={handleSelectChange}
+                            sx={{width: '8rem'}}
+                        >
+                            <MenuItem value={'Completion status (Incomplete to complete)'}>Completion status (Incomplete to complete)</MenuItem>
+                            <MenuItem value={'Completion status (Complete to incomplete)'}>Completion status (Complete to incomplete)</MenuItem>
+                            <MenuItem value={'Due date (Asc)'}>Due date (Asc)</MenuItem>
+                            <MenuItem value={'Due date (Desc)'}>Due date (Desc)</MenuItem>
+                            <MenuItem value={'Priority (Asc)'}>Priority (Asc)</MenuItem>
+                            <MenuItem value={'Priority (Desc)'}>Priority (Desc)</MenuItem>
+                        </Select>
+                    </FormControl>
+                </div>
+
+                <div style={{ flex: '1' }}>
+                    <ButtonComponent type={'submit'} function={handleSort} setTaskList={props.setTaskList} name={'Sort'} />
+                </div>
+            </div>
+        </form >
 
     )
 

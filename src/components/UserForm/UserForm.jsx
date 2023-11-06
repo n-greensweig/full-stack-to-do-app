@@ -71,62 +71,81 @@ function UserForm(props) {
 
             {/* User input form */}
             <form key={formKey} id='user-input' onSubmit={sendTaskToServer}>
-                <div className='flex'>
-                    <FormControl variant='outlined' fullWidth sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', gap: 1000, marginRight: '2rem' }}>
+                <div className='flex' style={{ gap: '20px' }}>
+                    <div style={{ flex: '1' }}>
+                        <FormControl variant='outlined' fullWidth sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', marginRight: '2rem' }}>
 
-                        {/* First input field */}
-                        <TextField
-                            id='task-input'
-                            className='margin'
-                            label='Task'
-                            variant='outlined'
-                            onChange={e => setTask(e.target.value)}
-                            required />
+                            {/* First input field */}
+                            <TextField
+                                id='task-input'
+                                className='margin'
+                                label='Task'
+                                variant='outlined'
+                                onChange={e => setTask(e.target.value)}
+                                style={{ width: '20rem' }}
+                                required
+                            />
 
-                    </FormControl>
+                        </FormControl>
+                    </div>
 
-                    <FormControl variant='outlined' fullWidth>
+                    <div style={{ flex: '1' }}>
+                        <FormControl variant='outlined' fullWidth>
 
-                        {/* Second input field */}
-                        <DatePicker
-                            label='Due date'
-                            className={'datepicker margin form-input'}
-                            value={dueDate}
-                            selected={dueDate}
-                            onChange={handleDateChange}
-                            dateFormat={'MM/dd/yyyy'}
-                        />
+                            {/* Second input field */}
+                            <DatePicker
+                                label='Due date'
+                                className={'datepicker margin form-input'}
+                                value={dueDate}
+                                selected={dueDate}
+                                onChange={handleDateChange}
+                                dateFormat={'MM/dd/yyyy'}
+                                sx={{ width: '10rem' }}
+                            />
+                        </FormControl>
+                    </div>
 
-                    </FormControl>
+                    <div style={{ flex: '1' }}>
+                        <FormControl variant='outlined' fullWidth sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
 
-                    <FormControl variant='outlined' fullWidth sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', gap: '30px', marginRight: '2rem' }}>
-
-                        {/* Priority drop-down */}
-                        <InputLabel id='dropdown-label'>Priority</InputLabel>
-                        <Select
-                            className='margin'
-                            labelId="dropdown-label"
-                            id="dropdown"
-                            defaultValue={'None'}
-                            value={props.priority}
-                            label="Priority"
-                            onChange={e => setPriority(e.target.value)}
-                            sx={{ width: '100%' }}
-                        >
-                            <MenuItem value={'None'}><em>None</em></MenuItem>
-                            <MenuItem value={'Low'}>Low</MenuItem>
-                            <MenuItem value={'Medium'}>Medium</MenuItem>
-                            <MenuItem value={'High'}>High</MenuItem>
-                        </Select>
-                    </FormControl>
+                            {/* Priority drop-down */}
+                            <InputLabel id='dropdown-label'>Priority</InputLabel>
+                            <Select
+                                className='margin'
+                                labelId="dropdown-label"
+                                id="dropdown"
+                                defaultValue={'None'}
+                                value={props.priority}
+                                label="Priority"
+                                onChange={e => setPriority(e.target.value)}
+                                sx={{ width: '8rem' }}
+                            >
+                                <MenuItem value={'None'}><em>None</em></MenuItem>
+                                <MenuItem value={'Low'}>Low</MenuItem>
+                                <MenuItem value={'Medium'}>Medium</MenuItem>
+                                <MenuItem value={'High'}>High</MenuItem>
+                            </Select>
+                        </FormControl>
+                    </div>
 
                     {/* Submit button */}
-                    <Button variant='outlined' fullWidth onClick={sendTaskToServer} type='submit' startIcon={<SendIcon />}>Save</Button>
+                    <div style={{ flex: '1' }}>
+                        <Button
+                            variant='outlined'
+                            fullWidth
+                            onClick={sendTaskToServer}
+                            type='submit'
+                            startIcon={<SendIcon />}
+                            sx={{height: '55px'}}
+                        >
+                            Save
+                        </Button>
+                    </div>
                 </div>
             </form>
 
 
-        </LocalizationProvider>
+        </LocalizationProvider >
 
 
 

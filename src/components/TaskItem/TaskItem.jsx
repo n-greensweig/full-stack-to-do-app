@@ -148,68 +148,70 @@ function TaskItem(props) {
         <LocalizationProvider dateAdapter={AdapterDayjs}>
             <Grid item spacing={3}>
                 <Paper elevation={5}>
-                    <div style={{width: '800px'}}>
-                    <Card>
-                        <CardContent sx={{ display: 'flex', flexDirection: 'row' }}>
-                            <div style={{ marginRight: '20px' }}>
-                                <CheckboxButton id={props.id} getTaskList={props.getTaskList} task={props.task} />
-                            </div>
-                            <div style={{ marginRight: '50px', width: '250px'}}>
-                                <Typography
-                                    className={props.task.completed ? 'underline dullen' : 'underline strong'}
-                                    contentEditable={true}
-                                    suppressContentEditableWarning={true}
-                                    value={task}
-                                    onInput={e => setTask(e.currentTarget.textContent)}
-                                    onBlur={saveEditedTask}
-                                >{props.task.task}</Typography>
-                            </div>
+                    <div style={{ width: '800px' }}>
+                        <Card>
+                            <CardContent sx={{ display: 'flex', flexDirection: 'row' }}>
+                                <div style={{ marginRight: '20px' }}>
+                                    <CheckboxButton id={props.id} getTaskList={props.getTaskList} task={props.task} />
+                                </div>
+                                <div style={{ marginRight: '50px', width: '250px' }}>
+                                    <Typography
+                                        className={props.task.completed ? 'underline dullen' : 'underline strong'}
+                                        contentEditable={true}
+                                        suppressContentEditableWarning={true}
+                                        value={task}
+                                        onInput={e => setTask(e.currentTarget.textContent)}
+                                        onBlur={saveEditedTask}
+                                    >{props.task.task}</Typography>
+                                </div>
 
-                            <div style={{ marginRight: '50px' }}>
-                                {
-                                    formattedDate === '12/31/1969' ? <DatePicker
-                                        defaultValue={null}
-                                        onChange={handleDateChange}
-                                        dateFormat='MM/dd/yyyy'
-                                        isClearable={true}
-                                    /> : <DatePicker
-                                        defaultValue={dayjs(newFormattedDate)}
-                                        views={['year', 'month', 'day']}
-                                        onChange={handleDateChange}
-                                        dateFormat='MM/dd/yyyy'
-                                        isClearable={true}
-                                    />
-                                }
-                            </div>
+                                <div style={{ marginRight: '50px' }}>
+                                    {
+                                        formattedDate === '12/31/1969' ? <DatePicker
+                                            defaultValue={null}
+                                            onChange={handleDateChange}
+                                            dateFormat='MM/dd/yyyy'
+                                            isClearable={true}
+                                        /> : <DatePicker
+                                            defaultValue={dayjs(newFormattedDate)}
+                                            views={['year', 'month', 'day']}
+                                            onChange={handleDateChange}
+                                            dateFormat='MM/dd/yyyy'
+                                            isClearable={true}
+                                        />
+                                    }
+                                </div>
 
-                            <Select
-                                className='margin'
-                                labelId="dropdown-label"
-                                id="dropdown"
-                                defaultValue={props.task.priority === null ? '' : props.task.priority}
-                                label="Priority"
-                                onChange={handlePriorityChange}
-                                sx={{
-                                    width: '20%',
+                                <Select
+                                    className='margin'
+                                    labelId="dropdown-label"
+                                    id="dropdown"
+                                    defaultValue={props.task.priority === null ? '' : props.task.priority}
+                                    label="Priority"
+                                    onChange={handlePriorityChange}
+                                    sx={{
+                                        width: '20%',
 
-                                    backgroundColor: props.task.completed ? 'white' :
-                                        props.task.priority === null ||
+                                        backgroundColor: props.task.completed ? 'white' :
+                                            props.task.priority === null ||
+                                                props.task.priority === 'None' ? 'white' :
+                                                props.task.priority === 'Low' ? 'lightgray' :
+                                                    props.task.priority === 'Medium' ? 'orange' : 'red',
+
+                                        color: props.task.priority === null ||
                                             props.task.priority === 'None' ? 'white' :
-                                            props.task.priority === 'Low' ? 'lightgray' :
-                                                props.task.priority === 'Medium' ? 'orange' : 'red',
+                                            props.task.completed ? 'lightgray' : 'white'
 
-                                    color: props.task.completed ? 'lightgray' : 'white'
-
-                                }}
-                            >
-                                <MenuItem value={'None'}><em>None</em></MenuItem>
-                                <MenuItem value={'Low'}>Low</MenuItem>
-                                <MenuItem value={'Medium'}>Medium</MenuItem>
-                                <MenuItem value={'High'}>High</MenuItem>
-                            </Select>
-                            <CardActions><DeleteButton id={props.id} getTaskList={props.getTaskList} /></CardActions>
-                        </CardContent>
-                    </Card>
+                                    }}
+                                >
+                                    <MenuItem value={'None'}><em>None</em></MenuItem>
+                                    <MenuItem value={'Low'}>Low</MenuItem>
+                                    <MenuItem value={'Medium'}>Medium</MenuItem>
+                                    <MenuItem value={'High'}>High</MenuItem>
+                                </Select>
+                                <CardActions><DeleteButton id={props.id} getTaskList={props.getTaskList} /></CardActions>
+                            </CardContent>
+                        </Card>
                     </div>
                 </Paper>
             </Grid>
