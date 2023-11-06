@@ -1,6 +1,6 @@
 import './TaskList.css';
 import TaskItem from '../TaskItem/TaskItem';
-import { Card, Grid, Paper } from '@mui/material';
+import { Grid } from '@mui/material';
 
 function TaskList(props) {
 

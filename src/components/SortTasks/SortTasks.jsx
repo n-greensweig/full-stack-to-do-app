@@ -1,5 +1,5 @@
 import axios from "axios";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import ButtonComponent from "../Buttons/ButtonComponent/ButtonComponent";
 
 import Select from '@mui/material/Select';
@@ -15,8 +15,10 @@ function SortTasks(props) {
     const handleSort = (event) => {
 
 
-        event.preventDefault();
+        console.log(props.isSorted);
         props.setIsSorted(true);
+        console.log(props.isSorted);
+        event.preventDefault();
 
         let sortParam = '';
         if (selectedOption === 'Task') {
@@ -37,7 +39,7 @@ function SortTasks(props) {
 
         axios.get(`/todo/sortedResults?sort=${sortParam}`)
             .then(response => {
-                console.log(response.data);
+                props.setSortedResults(response.data);
                 props.setTaskList(response.data);
             })
             .catch(error => {

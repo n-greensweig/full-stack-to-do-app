@@ -22,7 +22,6 @@ router.get('/search', (req, res) => {
     let queryText = `SELECT * FROM "todo" WHERE "task" ILIKE $1 ORDER BY "id" ASC;`;
     pool.query(queryText, [`%${req.query.q}%`])
         .then(result => {
-            console.log();
             res.send(result.rows);
         })
         .catch(error => {
