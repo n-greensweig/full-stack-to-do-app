@@ -14,6 +14,3 @@ This is a full-stack to-do app that allows users to add, edit, sort, search, and
 5. Run ```npm run server``` in your terminal
 6. Run ```npm run client``` in your terminal
 7. The ```npm run client``` command will open up a new browser tab for you
-
-## Final steps
-- [ ] Update README with screenshot
