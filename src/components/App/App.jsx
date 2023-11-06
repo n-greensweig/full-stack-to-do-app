@@ -47,6 +47,7 @@ function App() {
       <MainHeading />
 
       <UserForm getTaskList={getTaskList} />
+
       <div className='flex'>
         <div style={{ marginRight: '20px' }}>
           <SortTasks getTaskList={getTaskList} setTaskList={setTaskList} sortedResults={sortedResults} setSortedResults={setSortedResults} isSorted={isSorted} setIsSorted={setIsSorted} />
@@ -56,6 +57,7 @@ function App() {
           <SearchTasks taskList={taskList} getTaskList={getTaskList} setTaskList={setTaskList} />
         </div>
       </div>
+      
       <ListSubHeading />
       <TaskList key={Date.now()} taskList={taskList} getTaskList={getTaskList} setTaskList={setTaskList} />
 

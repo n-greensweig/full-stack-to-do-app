@@ -4,22 +4,8 @@ import { Grid } from '@mui/material';
 
 function TaskList(props) {
 
-    // Table of task items
+    // MUI grid of task items
     return (
-
-        // <table>
-        //     <thead>
-        //         <tr>
-        //             <th></th>
-        //             <th>Task</th>
-        //             <th>Due Date</th>
-        //             <th>Priority</th>
-        //             <th></th>
-        //         </tr>
-        //     </thead>
-        //     <tbody>{props.taskList.map(task => <TaskItem id={task.id} getTaskList={props.getTaskList} task={task} />)}
-        //     </tbody>
-        // </table>
 
         <Grid container spacing={2}>
             {

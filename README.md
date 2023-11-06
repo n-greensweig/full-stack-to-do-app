@@ -15,7 +15,6 @@ This is a full-stack to-do app that allows one to add and delete to-do items fro
 6. The ```npm run client``` command will open up a new browser tab for you
 
 ## Final steps
-- [ ] Sort by task
 - [ ] Update README with screenshot, installation instructions, and description
 
 ### Next steps

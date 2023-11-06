@@ -1,5 +1,5 @@
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import ButtonComponent from "../Buttons/ButtonComponent/ButtonComponent";
 
 import Select from '@mui/material/Select';
@@ -8,7 +8,7 @@ import MenuItem from '@mui/material/MenuItem';
 import { FormControl } from "@mui/material";
 function SortTasks(props) {
 
-    const [selectedOption, setSelectedOption] = useState('Task');
+    const [selectedOption, setSelectedOption] = useState('');
 
     // GET request that sorts by completed, dueDate, priority ASC/DESC
     // as user suggests via drop-down
@@ -18,7 +18,7 @@ function SortTasks(props) {
         event.preventDefault();
 
         let sortParam = '';
-        if (selectedOption === 'Task') {
+        if (selectedOption === 'Task' || selectedOption === '') {
             sortParam = 'task';
         } else if (selectedOption === 'Completion status (Incomplete to complete)') {
             sortParam = 'completed-ASC';
@@ -53,7 +53,7 @@ function SortTasks(props) {
     return (
 
         <form onSubmit={handleSort}>
-            <div className='flex' style={{ gap: '20px', display:'flex' }}>
+            <div className='flex' style={{ gap: '.25rem', display:'flex' }}>
                 <div style={{ flex: '1' }}>
                     <FormControl fullWidth sx={{ display: 'flex', flexDirection: 'column' }}>
                         <InputLabel>Sort</InputLabel>

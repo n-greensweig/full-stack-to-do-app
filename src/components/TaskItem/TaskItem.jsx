@@ -78,73 +78,9 @@ function TaskItem(props) {
         setEditedPriority(e.target.value);
     };
 
-    // Returns a row for each task item
+    // Returns a MUI card for each task item
     return (
 
-        // <LocalizationProvider dateAdapter={AdapterDayjs}>
-        //     <tr>
-        //         <td><CheckboxButton id={props.id} getTaskList={props.getTaskList} task={props.task} /></td>
-        //         {/* 500 error when double clicking into task item */}
-
-        //         <td
-        //             className={props.task.completed ? 'underline dullen' : 'underline strong'}
-        //             contentEditable={true}
-        //             suppressContentEditableWarning={true}
-        //             value={task}
-        //             onInput={e => setTask(e.currentTarget.textContent)}
-        //             onBlur={saveEditedTask}
-        //         >
-        //             {props.task.task}
-        //         </td>
-
-        //         <td>
-        //             {
-        //                 formattedDate === '12/31/1969' ? <DatePicker
-        //                     defaultValue={null}
-        //                     onChange={handleDateChange}
-        //                     dateFormat='MM/dd/yyyy'
-        //                     isClearable={true}
-        //                 /> : <DatePicker
-        //                     defaultValue={dayjs(newFormattedDate)}
-        //                     views={['year', 'month', 'day']}
-        //                     onChange={handleDateChange}
-        //                     dateFormat='MM/dd/yyyy'
-        //                     isClearable={true}
-        //                 />}
-        //         </td>
-        //         <td
-        //             className={props.task.completed ? 'dullen' : 'strong' && props.task.priority === 'High' ? 'high' : (props.task.priority === 'Medium' ? 'medium' : (props.task.priority === 'Low' ? 'low' : 'none'))}
-        //         >
-        //             <Select
-        //                 className='margin'
-        //                 labelId="dropdown-label"
-        //                 id="dropdown"
-        //                 defaultValue={props.task.priority === null ? '' : props.task.priority}
-        //                 label="Priority"
-        //                 onChange={handlePriorityChange}
-        //                 sx={{ width: '100%',
-
-        //                 backgroundColor: props.task.completed ? 'white' :
-        //                 props.task.priority === null ||
-        //                 props.task.priority === 'None' ? 'white' :
-        //                 props.task.priority === 'Low' ? 'lightgray' :
-        //                 props.task.priority === 'Medium' ? 'orange' : 'red',
-
-        //                 color: props.task.completed ? 'lightgray' : 'white'
-
-        //             }}
-        //             >
-        //             <MenuItem value={'None'}><em>None</em></MenuItem>
-        //             <MenuItem value={'Low'}>Low</MenuItem>
-        //             <MenuItem value={'Medium'}>Medium</MenuItem>
-        //             <MenuItem value={'High'}>High</MenuItem>
-        //         </Select>
-        //     </td>
-        //     <td>
-        //         <DeleteButton id={props.id} getTaskList={props.getTaskList} />
-        //     </td>
-        // </tr>
-        // </LocalizationProvider >
         <LocalizationProvider dateAdapter={AdapterDayjs}>
             <Grid item spacing={3}>
                 <Paper elevation={5}>
