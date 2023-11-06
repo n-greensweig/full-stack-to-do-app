@@ -1,9 +1,13 @@
 #user-input {
     border-bottom: 1px dashed gray;
-    margin: 0 15rem;
+    margin: 0 5rem;
     margin-bottom: 2rem;
     text-align: center;
     padding: 10px;
+}
+
+.white-background {
+    background-color: white;
 }
 
 .datepicker {

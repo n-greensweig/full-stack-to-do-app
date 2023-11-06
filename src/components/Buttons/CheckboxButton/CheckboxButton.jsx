@@ -20,7 +20,12 @@ function CheckboxButton(props) {
 
     // Toggle completed on change
     return (
-        <Checkbox checked={props.task.completed} value={props.task.completed} onChange={toggleCompleted} />
+        <Checkbox checked={props.task.completed} value={props.task.completed} onChange={toggleCompleted} sx={{
+            '&.Mui-checked': {
+                color: 'navy'
+            }
+        }}
+        />
     )
 }
 

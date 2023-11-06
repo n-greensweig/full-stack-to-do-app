@@ -61,7 +61,7 @@ function SortTasks(props) {
                             value={selectedOption}
                             label="Sort"
                             onChange={handleSelectChange}
-                            sx={{width: '8rem'}}
+                            sx={{width: '8rem', backgroundColor: 'white'}}
                         >
                             <MenuItem value={'Task'}>Task</MenuItem>
                             <MenuItem value={'Completion status (Incomplete to complete)'}>Completion status (Incomplete to complete)</MenuItem>

@@ -78,7 +78,7 @@ function UserForm(props) {
                             {/* First input field */}
                             <TextField
                                 id='task-input'
-                                className='margin'
+                                className='white-background'
                                 label='Task'
                                 variant='outlined'
                                 onChange={e => setTask(e.target.value)}
@@ -95,7 +95,7 @@ function UserForm(props) {
                             {/* Second input field */}
                             <DatePicker
                                 label='Due date'
-                                className={'datepicker margin form-input'}
+                                className={'datepicker white-background form-input'}
                                 value={dueDate}
                                 selected={dueDate}
                                 onChange={handleDateChange}
@@ -111,7 +111,7 @@ function UserForm(props) {
                             {/* Priority drop-down */}
                             <InputLabel id='dropdown-label'>Priority</InputLabel>
                             <Select
-                                className='margin'
+                                className='white-background'
                                 labelId="dropdown-label"
                                 id="dropdown"
                                 defaultValue={'None'}
@@ -131,12 +131,19 @@ function UserForm(props) {
                     {/* Submit button */}
                     <div style={{ flex: '1' }}>
                         <Button
+                            className='white-background'
                             variant='outlined'
                             fullWidth
                             onClick={sendTaskToServer}
                             type='submit'
                             startIcon={<SendIcon />}
-                            sx={{height: '55px'}}
+                            sx={{
+                                height: '55px', backgroundColor: 'navy', color: 'white', border: 'navy', '&:hover': {
+                                    backgroundColor: 'white',
+                                    borderColor: 'navy',
+                                    color: 'navy'
+                                }
+                            }}
                         >
                             Save
                         </Button>

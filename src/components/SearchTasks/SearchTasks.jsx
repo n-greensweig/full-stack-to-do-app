@@ -32,7 +32,9 @@ function SearchTasks(props) {
                     label='Search'
                     variant='outlined'
                     onChange={e => setSearch(e.target.value)}
-                    value={search} />
+                    value={search}
+                    sx={{backgroundColor: 'white'}}
+                    />
             </FormControl>
         </form>
     )

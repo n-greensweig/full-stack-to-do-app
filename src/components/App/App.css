@@ -27,10 +27,15 @@
 }
 
 h1, h2 {
-  color: rgb(89, 154, 238);
+  color: navy;
 }
 
 .flex {
   display: flex;
   justify-content: center;
+}
+
+html {
+  background-color: lavender;
+  color: #333;
 }
