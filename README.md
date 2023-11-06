@@ -15,11 +15,8 @@ This is a full-stack to-do app that allows one to add and delete to-do items fro
 6. The ```npm run client``` command will open up a new browser tab for you
 
 ## Final steps
-- [ ] Responsiveness
+- [ ] Responsiveness, switch table to grid with paper and cards
 - [ ] Background color
-- [ ] Delete unnecessary code
-- [ ] Update with PUT requests?
-- [ ] Switch table to grid with paper and cards
 - [ ] Add spacing between form items, sort/search, and table items
 - [ ] Update README with screenshot, installation instructions, and description
 
