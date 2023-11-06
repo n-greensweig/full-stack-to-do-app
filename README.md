@@ -19,6 +19,5 @@ This is a full-stack to-do app that allows one to add and delete to-do items fro
 - [ ] Update README with screenshot, installation instructions, and description
 
 ### Next steps
-- [ ] Change priority color depending on status
 - [ ] Filter by date (and priority? and completed?)
 - [ ] Sort by task?
