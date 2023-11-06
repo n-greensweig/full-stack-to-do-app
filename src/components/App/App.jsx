@@ -23,7 +23,6 @@ function App() {
     if (!isSorted) {
       axios.get('/todo')
         .then(response => {
-          console.log('hi');
           setTaskList(response.data);
         })
         .catch(error => {
@@ -31,8 +30,6 @@ function App() {
           alert('Something went wrong with the GET request.');
         });
     } else {
-      console.log('hello');
-      console.log(sortedResults);
       setTaskList(sortedResults);
     }
 

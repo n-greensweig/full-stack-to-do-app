@@ -8,16 +8,13 @@ import MenuItem from '@mui/material/MenuItem';
 import { FormControl } from "@mui/material";
 function SortTasks(props) {
 
-    const [selectedOption, setSelectedOption] = useState('Completion status');
+    const [selectedOption, setSelectedOption] = useState('Task');
 
     // GET request that sorts by completed, dueDate, priority ASC/DESC
     // as user suggests via drop-down
     const handleSort = (event) => {
 
-
-        console.log(props.isSorted);
         props.setIsSorted(true);
-        console.log(props.isSorted);
         event.preventDefault();
 
         let sortParam = '';
@@ -39,7 +36,6 @@ function SortTasks(props) {
 
         axios.get(`/todo/sortedResults?sort=${sortParam}`)
             .then(response => {
-                props.setSortedResults(response.data);
                 props.setTaskList(response.data);
             })
             .catch(error => {
@@ -67,6 +63,7 @@ function SortTasks(props) {
                             onChange={handleSelectChange}
                             sx={{width: '8rem'}}
                         >
+                            <MenuItem value={'Task'}>Task</MenuItem>
                             <MenuItem value={'Completion status (Incomplete to complete)'}>Completion status (Incomplete to complete)</MenuItem>
                             <MenuItem value={'Completion status (Complete to incomplete)'}>Completion status (Complete to incomplete)</MenuItem>
                             <MenuItem value={'Due date (Asc)'}>Due date (Asc)</MenuItem>

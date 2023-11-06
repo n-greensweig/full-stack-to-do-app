@@ -73,7 +73,7 @@ function UserForm(props) {
             <form key={formKey} id='user-input' onSubmit={sendTaskToServer}>
                 <div className='flex' style={{ gap: '20px' }}>
                     <div style={{ flex: '1' }}>
-                        <FormControl variant='outlined' fullWidth sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', marginRight: '2rem' }}>
+                        <FormControl variant='outlined' fullWidth sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', marginRight: '1rem' }}>
 
                             {/* First input field */}
                             <TextField
