@@ -2,9 +2,6 @@
 
 This is a full-stack to-do app that allows users to add, edit, sort, search, and delete to-do items in a to-do list. The project uses React for client- and server-side code and a PostgreSQL database to store user's to-do list items.
 
-## Screenshot
-
-
 ## Setup Instructions
 
 1. Create a database named ```weekend-to-do-app```
