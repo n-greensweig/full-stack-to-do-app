@@ -1,9 +1,17 @@
 # Full Stack To-do App
 
+## Table of Contents
+- [Description](#Description)
+- [Installation](#Installation)
+- [Usage](#Usage)
+- [Features](#Features)
+- [Built With](#Built-With)
+- [Contributing](#Contributing)
+
 ## Description
 The Full Stack To-Do App is a comprehensive application for task management. It allows users to add, search, sort, and track tasks efficiently. The app is built with React and Node.js, providing a dynamic and responsive user experience.
 
-## Setup Instructions
+## Installation
 
 1. Create a database named ```weekend-to-do-app```
 2. Clone the repository: ```git clone https://github.com/n-greensweig/full-stack-to-do-app.git```
@@ -13,13 +21,6 @@ The Full Stack To-Do App is a comprehensive application for task management. It 
 6. Run ```npm run server``` in your terminal
 7. Run ```npm run client``` in your terminal
 8. The ```npm run client``` command will open up a new browser tab for you
-
-## Table of Contents
-- [Installation](#Installation)
-- [Usage](#Usage)
-- [Features](#Features)
-- [Built With](#Built-With)
-- [Contributing](#Contributing)
 
 ## Usage
 After starting the application:
