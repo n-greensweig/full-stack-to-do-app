@@ -1,4 +1,4 @@
-# Priori - a full-stack to-do app
+# Priori: A Full-stack To-do App
 
 ## Table of Contents
 - [Description](#Description)
