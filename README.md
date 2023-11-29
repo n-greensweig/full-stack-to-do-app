@@ -30,18 +30,18 @@ After starting the application:
 4. View and manage your tasks in the 'TaskList' and 'TaskItem' components.
 
 ## Features
-App: Main component that initializes the app (App.jsx).
-SearchTasks: Allows users to search tasks (SearchTasks.jsx).
-SortTasks: Feature to sort tasks (SortTasks.jsx).
-UserForm: Component for adding new tasks (UserForm.jsx).
-TaskList & TaskItem: Display and manage tasks (TaskList.jsx and TaskItem.jsx).
-Todo Router: Handles routing for tasks on the server-side (todo.router.js).
+1. App: Main component that initializes the app (App.jsx).
+2. SearchTasks: Allows users to search tasks (SearchTasks.jsx).
+3. SortTasks: Feature to sort tasks (SortTasks.jsx).
+4. UserForm: Component for adding new tasks (UserForm.jsx).
+5. TaskList & TaskItem: Display and manage tasks (TaskList.jsx and TaskItem.jsx).
+6. Todo Router: Handles routing for tasks on the server-side to get data from the database (todo.router.js).
 
 ## Built With
-React.js - Frontend framework.
-Node.js - Backend server.
-Express - Server framework.
-PostgreSQL - Database management.
+1. React.js - Frontend framework.
+2. Node.js - Backend server.
+3. Express - Server framework.
+4. PostgreSQL - Database management.
 
 ## Contributing
 Contributions are welcome. Please follow these steps to contribute:
