@@ -1,4 +1,4 @@
-# Full Stack To-do App
+# Priori - a full-stack to-do app
 
 ## Table of Contents
 - [Description](#Description)
@@ -9,7 +9,7 @@
 - [Contributing](#Contributing)
 
 ## Description
-The Full Stack To-Do App is a comprehensive application for task management. It allows users to add, search, sort, and track tasks efficiently. The app is built with React and Node.js, providing a dynamic and responsive user experience.
+Priori is a full stack to-do app is a comprehensive application for task management. It allows users to add, search, sort, and track tasks efficiently. The app is built with React and Node.js, providing a dynamic and responsive user experience.
 
 ## Installation
 
